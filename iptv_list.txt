@@ -109,9 +109,6 @@ CCTV少儿,http://223.151.51.74:9901/tsfile/live/0014_1.m3u8?key=txiptv&playlive
 湖南经视,http://223.159.8.213:8099/tsfile/live/1006_1.m3u8?key=txiptv&playlive=0&authid=0
 湖南都市,http://42.49.189.17:9008/tsfile/live/1001_1.m3u8?key=txiptv&playlive=1&authid=0
 湖南都市,http://124.228.160.25:9901/tsfile/live/1044_1.m3u8?key=txiptv&playlive=1&authid=0
-陕西频道,#genre#
-陕西卫视,http://223.151.51.74:9901/tsfile/live/1003_1.m3u8?key=txiptv&playlive=1&authid=0
-陕西卫视,http://223.159.8.213:8099/tsfile/live/0136_1.m3u8?key=txiptv&playlive=0&authid=0
 
 
 港澳频道,#genre#
