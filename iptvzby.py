@@ -15,7 +15,7 @@ url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)
 
-keywords = ['凤凰卫视', '凤凰资讯', 'TVB', '天映', '香港卫视']  # 需要提取的关键字列表
+keywords = ['凤凰卫视', '天映']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
     HK.write('\n港澳频道,#genre#\n')
@@ -23,7 +23,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', enc
         if re.search(pattern, line):  # 如果行中有任意关键字
             HK.write(line)  # 将该行写入输出文件
 
-keywords = ['民视', '中视', '台视', '华视', '新闻台', '东森', '龙祥', '公视', '三立', '大爱', '人间']  # 需要提取的关键字列表
+keywords = ['东森', '龙祥', '三立', '大爱', '人间']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
     TW.write('\n台湾频道,#genre#\n')
@@ -423,7 +423,7 @@ def channel_key(channel_name):
 # 对频道进行排序
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
-result_counter = 10  # 每个频道需要的个数
+result_counter = 2  # 每个频道需要的个数
 
 with open("hn.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
