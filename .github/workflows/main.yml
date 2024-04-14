@@ -3,10 +3,9 @@ name: iptvzby
 on:
   schedule:
     - cron: '0 6,20 * * *'
-  push:
+  workflow_dispatch:
     branches:
       - main
-      - dev
       
 jobs:
   build:
