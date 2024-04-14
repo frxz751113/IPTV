@@ -23,7 +23,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', enc
         if re.search(pattern, line):  # 如果行中有任意关键字
             HK.write(line)  # 将该行写入输出文件
 
-keywords = ['热剧', '超级电影', '超级电视剧', '喜剧', '惊悚悬疑', '明星大片', '潮妈辣婆', '精品大剧', '动作电影', '剧场', '中国功夫']  # 需要提取的关键字列表
+keywords = ['热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080 '动作电影 8M1080', '剧场', '中国功夫']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
     TW.write('\n数字频道,#genre#\n')
