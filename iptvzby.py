@@ -15,7 +15,7 @@ url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)
 
-keywords = ['凤凰卫视', '凤凰中文', '天映']  # 需要提取的关键字列表
+keywords = ['凤凰卫视', '凤凰中文', '天映', '东森电影', '龙祥电影', '东森洋片']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
     HK.write('\n港澳频道,#genre#\n')
@@ -23,10 +23,10 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', enc
         if re.search(pattern, line):  # 如果行中有任意关键字
             HK.write(line)  # 将该行写入输出文件
 
-keywords = ['东森电影', '龙祥电影', '东森洋片']  # 需要提取的关键字列表
+keywords = ['NewTV', 'iHOT', 'SITV']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
-    TW.write('\n台湾频道,#genre#\n')
+    TW.write('\n数字频道,#genre#\n')
     for line in file:
         if re.search(pattern, line):  # 如果行中有任意关键字
             TW.write(line)  # 将该行写入输出文件
