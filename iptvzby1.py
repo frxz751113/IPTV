@@ -470,7 +470,22 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
-             
+    
+    channel_counters = {}
+    file.write('影视频道,#genre#\n')
+    for result in results:
+        channel_name, channel_url, speed = result
+        if '影' in channel_name or '功夫' in channel_name' or '剧' in channel_name' or '经典' in channel_name or '惊' in channel_name or '妈' in channel_name:
+            if channel_name in channel_counters:
+                if channel_counters[channel_name] >= result_counter:
+                    continue
+                else:
+                    file.write(f"{channel_name},{channel_url}\n")
+                    channel_counters[channel_name] += 1
+            else:
+                file.write(f"{channel_name},{channel_url}\n")
+                channel_counters[channel_name] = 1    
+                
 # 合并自定义频道文件内容
 file_contents = []
 file_paths = ["hn.txt", "GAT.txt"]  # 替换为实际的文件路径列表
