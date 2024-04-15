@@ -423,7 +423,7 @@ def channel_key(channel_name):
 # 对频道进行排序
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
-result_counter = 1  # 每个频道需要的个数
+result_counter = 3  # 每个频道需要的个数
 
 with open("hn.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
@@ -445,7 +445,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('卫视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖北' in channel_name or '湖南卫视' in channel_name or '山东' in channel_name or '山西' in channel_name or '河南' in channel_name or '河北' in channel_name or '江苏' in channel_name or '广东' in channel_name or '安徽' in channel_name or '陕西' in channel_name or '东南' in channel_name:
+        if '湖北卫视' in channel_name or '湖南卫视' in channel_name or '河南' in channel_name or '河北' in channel_name or '江苏' in channel_name or '广东' in channel_name or '安徽' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -460,7 +460,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('湖南频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖南' in channel_name or '茶' in channel_name or '常德' in channel_name or '长沙' in channel_name or '张家界' in channel_name or '郴州' in channel_name:
+        if '湖南' in channel_name or '衡阳' in channel_name or '常德' in channel_name or '长沙' in channel_name or '岳阳' in channel_name or '州' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
