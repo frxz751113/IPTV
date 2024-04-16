@@ -48,7 +48,9 @@ urls = [
 "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D",        # 湖 北
 "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
 "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hubei%22",     # 湖 北
-"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南    
+"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南   
+"https://quake.360.net/quake/#/searchResult?searchVal=%22iptv%2Flive%2Fzh_cn.js%22%20%26%26%20country%3D%22CN%22%20%26%26%20region%3D%22%E6%B9%96%E5%8C%97%22&selectIndex=quake_service&ignore_cache=false&timeRange=&timeRange=&latest=true&page=2",    
+"https://quake.360.net/quake/#/searchResult?searchVal=%22iptv%2Flive%2Fzh_cn.js%22%20%26%26%20country%3D%22CN%22%20%26%26%20region%3D%22%E6%B9%96%E5%8D%97%22&selectIndex=quake_service&ignore_cache=false&timeRange=&timeRange=&latest=true&t=1713268518465",
 ]
 
 
