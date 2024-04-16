@@ -430,7 +430,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('央视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if 'CCTV' in channel_name or 'CHC' in channel_name:
+        if 'CCTV1' in channel_name or 'CHC' in channel_name or 'CCTV6' in channel_name or 'CCTV3' in channel_name or 'CCTV8' in channel_name or 'CCTV12' in channel_name or 'CCTV13' in channel_name or 'CCTV15' in channel_name or 'CCTV17' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -460,7 +460,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('湖南频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖南' in channel_name or '衡阳' in channel_name or '常德' in channel_name or '长沙' in channel_name or '岳阳' in channel_name:
+        if '湖南' in channel_name or '常德' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
