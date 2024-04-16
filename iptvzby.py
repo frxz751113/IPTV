@@ -45,12 +45,35 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源
 urls = [
-"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D",        # 湖 北
-"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
-"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hubei%22",     # 湖 北
-"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南   
-"https://quake.360.net/quake/#/searchResult?searchVal=%22iptv%2Flive%2Fzh_cn.js%22%20%26%26%20country%3D%22CN%22%20%26%26%20region%3D%22%E6%B9%96%E5%8C%97%22&selectIndex=quake_service&ignore_cache=false&timeRange=&timeRange=&latest=true&page=2",    
-"https://quake.360.net/quake/#/searchResult?searchVal=%22iptv%2Flive%2Fzh_cn.js%22%20%26%26%20country%3D%22CN%22%20%26%26%20region%3D%22%E6%B9%96%E5%8D%97%22&selectIndex=quake_service&ignore_cache=false&timeRange=&timeRange=&latest=true&t=1713268518465",
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南   
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",        # 长 沙
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ibG91ZGki",	        # 娄 底
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemh1emhvdSI%3D", 	    # 株 洲
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVleWFuZyI%3D",	    # 岳 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",	    # 衡 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hlbnpob3Ui",        # 郴 州
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieGlhbmd0YW4i",        # 湘 潭
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",      # 常 德
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieWl5YW5nIg%3D%3D",    # 益 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieW9uZ3pob3Ui",        # 永 州
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaHVhaWh1YSI%3D",      # 怀 化
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ic2hhb3lhbmci",        # 邵 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemhhbmdqaWFqaWUi",    # 张家界
+    "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",	    # 长 沙
+    "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	    # 株 洲
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yueyang%22",	    # 岳 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22loudi%22",	    # 娄 底
+    "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	    # 郴 州
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan%22",	    # 湘 潭
+    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",	    # 常 德
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yiyang%22",	    # 益 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yongzhou%22",	    # 永 州
+    "https://www.zoomeye.org/searchResult?q=city%3A%22huaihua%22",	    # 怀 化
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi%22",	    # 湘 西
+    "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang%22",	    # 邵 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie%22",	# 张家界
 ]
 
 
