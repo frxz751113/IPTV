@@ -46,10 +46,7 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 扫源
 urls = [
 "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D",        # 湖 北
-"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D",    # 广 东
-"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D",        # 湖 北
 "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
-"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangdong%22", # 广 东
 "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hubei%22",     # 湖 北
 "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南    
 ]
@@ -368,7 +365,7 @@ def channel_key(channel_name):
 # 对频道进行排序
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
-result_counter = 15  # 每个频道需要的个数
+result_counter = 5  # 每个频道需要的个数
 
 with open("hn.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
@@ -390,7 +387,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('卫视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖北卫视' in channel_name or '湖南卫视' in channel_name or '卫视' in channel_name or '广东' in channel_name or '安徽' in channel_name:
+        if '卫视' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -405,7 +402,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('湖南频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖南' in channel_name or '湖北' in channel_name or '湖南教育' in channel_name or '武汉' in channel_name or '广东' in channel_name or '广州' in channel_name or '珠江' in channel_name or '深圳' in channel_name:
+        if '湖南' in channel_name or '湖北' in channel_name or '湖南教育' in channel_name or '武汉' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
