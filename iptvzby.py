@@ -433,7 +433,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('湖南频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖南' in channel_name or '湖北' in channel_name or '湖南教育' in channel_name or '电' in channel_name or '影视' in channel_name or '公共' in channel_name:
+        if '湖南' in channel_name or '山东' in channel_name or '综合' in channel_name or '频道' in channel_name or '临沂' in channel_name or '公共' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
