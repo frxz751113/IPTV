@@ -74,7 +74,7 @@ urls = [
     "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi%22",	    # 湘 西
     "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang%22",	    # 邵 阳
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie%22",	# 张家界
-]
+
 ]
 
 
