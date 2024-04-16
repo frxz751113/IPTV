@@ -59,20 +59,22 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaHVhaWh1YSI%3D",      # 怀 化
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ic2hhb3lhbmci",        # 邵 阳
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemhhbmdqaWFqaWUi",    # 张家界
-    "https://www.zoomeye.org/searchResult?q=city:%22changsha"%2Bafter%3A"2024-04-01"",	    # 长 沙
-    "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang"%2Bafter%3A"2024-04-01"",	    # 衡 阳
-    "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou"%2Bafter%3A"2024-04-01"",	    # 株 洲
-    "https://www.zoomeye.org/searchResult?q=city%3A%22yueyang"%2Bafter%3A"2024-04-01"",	    # 岳 阳
-    "https://www.zoomeye.org/searchResult?q=city%3A%22loudi"%2Bafter%3A"2024-04-01"",	    # 娄 底
-    "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou"%2Bafter%3A"2024-04-01"",	    # 郴 州
-    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan"%2Bafter%3A"2024-04-01"",	    # 湘 潭
-    "https://www.zoomeye.org/searchResult?q=city%3A%22changde"%2Bafter%3A"2024-04-01"",	    # 常 德
-    "https://www.zoomeye.org/searchResult?q=city%3A%22yiyang"%2Bafter%3A"2024-04-01"",	    # 益 阳
-    "https://www.zoomeye.org/searchResult?q=city%3A%22yongzhou"%2Bafter%3A"2024-04-01"",	    # 永 州
-    "https://www.zoomeye.org/searchResult?q=city%3A%22huaihua"%2Bafter%3A"2024-04-01"",	    # 怀 化
-    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi"%2Bafter%3A"2024-04-01"",	    # 湘 西
-    "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang"%2Bafter%3A"2024-04-01"",	    # 邵 阳
-    "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie"%2Bafter%3A"2024-04-01"",	# 张家界
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南
+    "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",	    # 长 沙
+    "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	    # 株 洲
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yueyang%22",	    # 岳 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22loudi%22",	    # 娄 底
+    "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	    # 郴 州
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan%22",	    # 湘 潭
+    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",	    # 常 德
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yiyang%22",	    # 益 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yongzhou%22",	    # 永 州
+    "https://www.zoomeye.org/searchResult?q=city%3A%22huaihua%22",	    # 怀 化
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi%22",	    # 湘 西
+    "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang%22",	    # 邵 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie%22",	# 张家界
+]
 ]
 
 
