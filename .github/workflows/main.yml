@@ -1,4 +1,4 @@
-name: iptvzby
+name: iptv
 
 on:
   schedule:
@@ -25,6 +25,7 @@ jobs:
 
       - name: Run iptv
         run: python ${{ github.workspace }}/iptvzby.py
+        #run: python ${{ github.workspace }}/iptvzby.py
 
       - name: 提交更改
         run: |
