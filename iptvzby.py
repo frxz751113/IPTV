@@ -50,7 +50,7 @@ urls = [
     "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	    # 株 洲
     "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	    # 郴 州
-
+     "https://www.zoomeye.org/searchResult?q=country%3A%22CN%22",
 ]
 
 
