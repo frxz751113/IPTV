@@ -50,7 +50,27 @@ urls = [
     "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	    # 株 洲
     "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	    # 郴 州
-     "https://www.zoomeye.org/searchResult?q=country%3A%22CN%22",
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan%22",	    # 湘 潭
+    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",	    # 常 德
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yiyang%22",	    # 益 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22yongzhou%22",	    # 永 州
+    "https://www.zoomeye.org/searchResult?q=city%3A%22huaihua%22",	    # 怀 化
+    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi%22",	    # 湘 西
+    "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang%22",	    # 邵 阳
+    "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie%22",	# 张家界
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ibG91ZGki",	        # 娄 底
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemh1emhvdSI%3D", 	    # 株 洲
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVleWFuZyI%3D",	    # 岳 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",	    # 衡 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hlbnpob3Ui",        # 郴 州
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieGlhbmd0YW4i",        # 湘 潭
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",      # 常 德
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieWl5YW5nIg%3D%3D",    # 益 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieW9uZ3pob3Ui",        # 永 州
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaHVhaWh1YSI%3D",      # 怀 化
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ic2hhb3lhbmci",        # 邵 阳
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemhhbmdqaWFqaWUi",    # 张家界 
+    "https://www.zoomeye.org/searchResult?q=country%3A%22CN%22",
 ]
 
 
