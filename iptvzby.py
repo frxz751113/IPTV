@@ -46,7 +46,7 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 扫源
 urls = [
    
-    “https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iIA%3D%3D”，
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iIA%3D%3D",
      "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",	    # 长 沙
     "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	     # 株洲
