@@ -46,13 +46,13 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 扫源
 urls = [
 
-   #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
+   "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bGx5LicIg%3D%3D",        # 山 东
    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族
 
-    #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hebei%22",     # 河 北
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hebei%22",     # 河 北
    # "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22shandong%22",  # 山 东
    # "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
     "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南
@@ -77,7 +77,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.4)
+        response = requests.get(url, timeout=0.5)
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -155,7 +155,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.4)
+            response = requests.get(json_url, timeout=0.5)
             json_data = response.json()
 
             try:
@@ -311,7 +311,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(4, False):
+            with eventlet.Timeout(5, False):
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
