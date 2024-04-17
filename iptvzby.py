@@ -45,18 +45,12 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源
 urls = [
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bGx5LicIg%3D%3D",        # 山 东
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iIA%3D%3D",
      "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",	    # 长 沙
     "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",	    # 衡 阳
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	    # 株 洲
-    "https://www.zoomeye.org/searchResult?q=city%3A%22yueyang%22",	    # 岳 阳
-    "https://www.zoomeye.org/searchResult?q=city%3A%22loudi%22",	    # 娄 底
     "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	    # 郴 州
-    "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan%22",	    # 湘 潭
-    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",	    # 常 德
+
 ]
 
 
