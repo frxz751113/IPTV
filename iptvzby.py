@@ -52,14 +52,7 @@ urls = [
     "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",	     # 株洲
     "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",	     # 郴州
      “https://www.zoomeye.org/searchResult?q=country%3A%22CN%22”，
-   # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
-    #"https://www.zoomeye.org/searchResult?q=subdivisions%3A%22guangxi%22",#广西
-  #  "https://www.zoomeye.org/searchResult?q=subdivisions%3A%22henan%22", #河南
-  # # "https://www.zoomeye.org/searchResult?q=subdivisions%3A%22hunan%22", #
-  #  "https://www.zoomeye.org/searchResult?q=subdivisions%3A%22hebei%22",
-      ]
+ ]
 
 def modify_urls(url):
     modified_urls = []
