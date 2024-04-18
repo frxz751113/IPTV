@@ -255,6 +255,7 @@ for url in urls:
                             name = name.replace("卫视台", "卫视")
                             name = name.replace("湖南电视台", "湖南卫视")
                             name = name.replace("少儿科教", "少儿")
+                            name = name.replace("TV星河2）", "TV星河")
                             name = name.replace("影视剧", "影视")
                             name = name.replace("电视剧", "影视")
                             name = name.replace("卡", "")
