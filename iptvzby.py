@@ -182,6 +182,7 @@ for url in urls:
                             name = name.replace("超高", "")
                             name = name.replace("频道", "")
                             name = name.replace("-", "")
+                            name = name.replace("007广西影视一3", "广西影视")
                             name = name.replace(" ", "")
                             name = name.replace("PLUS", "+")
                             name = name.replace("＋", "+")
@@ -257,8 +258,7 @@ for url in urls:
                             name = name.replace("少儿科教", "少儿")
                             name = name.replace("影视剧", "影视")
                             name = name.replace("电视剧", "影视")
-                            name = name.replace("广西影视卡", "广西影视")
-                            name = name.replace("007广西影视—_3", "广西影视")
+                            name = name.replace("卡", "")
                             results.append(f"{name},{urld}")
             except:
                 continue
