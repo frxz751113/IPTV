@@ -45,16 +45,16 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源
 urls = [
-   # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
+   "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D",                # 广东
    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bGx5LicIg%3D%3D",        # 山 东
    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族
 
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hebei%22",     # 河 北
    # "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22shandong%22",  # 山 东
-   # "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
-    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22fujian%22",     # 福建
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangdong%22",     # 广东
     "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西
 ]
 
@@ -376,40 +376,10 @@ result_counter = 5  # 每个频道需要的个数
 
 with open("hn.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
-    file.write('央视频道,#genre#\n')
+    file.write('港澳频道1,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if 'CCTV' in channel_name or 'CHC' in channel_name:
-            if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
-                        
-    channel_counters = {}
-    file.write('卫视频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        if '卫视' in channel_name or '凤凰' in channel_name:
-            if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
-                        
-    channel_counters = {}
-    file.write('地方频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        if 'CCTV' not in channel_name and '卫视' not in channel_name :
+        if '龙祥' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '本港' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
