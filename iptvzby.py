@@ -199,6 +199,7 @@ for url in urls:
                             name = name.replace("CCTV4欧洲", "CCTV4")
                             name = name.replace("CCTV5体育", "CCTV5")
                             name = name.replace("CCTV5+体育", "CCTV5+")
+                             name = name.replace("CCTV5卡", "CCTV5")
                             name = name.replace("CCTV6电影", "CCTV6")
                             name = name.replace("CCTV7军事", "CCTV7")
                             name = name.replace("CCTV7军农", "CCTV7")
@@ -255,6 +256,9 @@ for url in urls:
                             name = name.replace("湖南电视台", "湖南卫视")
                             name = name.replace("少儿科教", "少儿")
                             name = name.replace("影视剧", "影视")
+                             name = name.replace("电视剧", "影视")
+                             name = name.replace("广西影视卡", "广西影视")
+                            name = name.replace("007广西影视——3", "广西影视")
                             results.append(f"{name},{urld}")
             except:
                 continue
