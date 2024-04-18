@@ -256,9 +256,9 @@ for url in urls:
                             name = name.replace("湖南电视台", "湖南卫视")
                             name = name.replace("少儿科教", "少儿")
                             name = name.replace("影视剧", "影视")
-                             name = name.replace("电视剧", "影视")
-                             name = name.replace("广西影视卡", "广西影视")
-                            name = name.replace("007广西影视——3", "广西影视")
+                            name = name.replace("电视剧", "影视")
+                            name = name.replace("广西影视卡", "广西影视")
+                            name = name.replace("007广西影视—_3", "广西影视")
                             results.append(f"{name},{urld}")
             except:
                 continue
