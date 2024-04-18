@@ -15,14 +15,6 @@ url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)
 
-keywords = ['凤凰中文', '天映电影', '东森电影', '龙祥电影', '东森洋片']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
-    HK.write('\n港澳频道,#genre#\n')
-    for line in file:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-            HK.write(line)  # 将该行写入输出文件
-
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
@@ -77,7 +69,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.5)
+        response = requests.get(url, timeout=0.8)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -155,7 +147,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.5)
+            response = requests.get(json_url, timeout=0.8)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -315,7 +307,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(5, False):
+            with eventlet.Timeout(10, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
@@ -376,7 +368,7 @@ def channel_key(channel_name):
 # 对频道进行排序
 results.sort(key=lambda x: (x[0], -float(x[2].split()[0])))
 results.sort(key=lambda x: channel_key(x[0]))
-result_counter = 5  # 每个频道需要的个数
+result_counter = 10  # 每个频道需要的个数
 
 with open("hn.txt", 'w', encoding='utf-8') as file:
     channel_counters = {}
