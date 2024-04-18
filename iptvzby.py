@@ -200,7 +200,6 @@ for url in urls:
                             name = name.replace("CCTV4欧洲", "CCTV4")
                             name = name.replace("CCTV5体育", "CCTV5")
                             name = name.replace("CCTV5+体育", "CCTV5+")
-                             name = name.replace("CCTV5卡", "CCTV5")
                             name = name.replace("CCTV6电影", "CCTV6")
                             name = name.replace("CCTV7军事", "CCTV7")
                             name = name.replace("CCTV7军农", "CCTV7")
