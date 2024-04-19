@@ -187,6 +187,8 @@ for url in urls:
                             name = name.replace("测试014", "测试凤凰中文3")
                             name = name.replace("测试015", "测试星空卫视")
                             name = name.replace("测试016", "测试澳门莲花")
+                             name = name.replace("测试012", "文")
+                            name = name.replace("测试013", "文")
                             name = name.replace("007广西影视一3", "广西影视")
                             name = name.replace(" ", "")
                             name = name.replace("PLUS", "+")
