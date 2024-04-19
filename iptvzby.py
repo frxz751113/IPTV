@@ -180,7 +180,7 @@ for url in urls:
                             name = name.replace("测试005", "测试私人影院")
                             name = name.replace("测试006", "测试东森洋片")
                             name = name.replace("测试007", "测试东森电影")
-                            name = name.replace("测试008", "测试天映频道")
+                            name = name.replace("测试008", "测试AXN电影")
                             name = name.replace("测试009", "测试好莱坞电影")
                             name = name.replace("测试010", "测试龙祥时代")
                             name = name.replace("测试011", "测试凤凰香港")
