@@ -45,7 +45,7 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hebei%22",     # 河 北
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22shandong%22",  # 山 东
-    #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
+    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南
     "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西
  ]
@@ -181,7 +181,7 @@ for url in urls:
                             name = name.replace("测试006", "测试东森洋片")
                             name = name.replace("测试007", "测试东森电影")
                             name = name.replace("测试008", "测试天映频道")
-                            name = name.replace("测试009", "测试未知")
+                            name = name.replace("测试009", "测试好莱坞电影")
                             name = name.replace("测试010", "测试龙祥时代")
                             name = name.replace("测试011", "测试凤凰香港")
                             name = name.replace("测试014", "测试凤凰中文3")
