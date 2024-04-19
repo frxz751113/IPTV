@@ -40,12 +40,12 @@ urls = [
 
    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",                # 河 北
    # "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bGx5LicIg%3D%3D",        # 山 东
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
+    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",        # 河 南
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",        # 湖 南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hebei%22",     # 河 北
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22shandong%22",  # 山 东
-    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
+    #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",     # 河 南
     #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",     # 湖 南
     "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西
  ]
@@ -68,7 +68,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.8)          ###//////////////////
+        response = requests.get(url, timeout=0.5)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -146,7 +146,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.8)                        ####///////////////
+            response = requests.get(json_url, timeout=0.5)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -306,7 +306,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(10, False):  #################////////////////////////////////
+            with eventlet.Timeout(3, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
@@ -420,7 +420,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('天外频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '龙祥' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name:
+        if '龙祥' in channel_name or '东森' in channel_name or '影' in channel_name or '剧' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name:
        # if 'CCTV' not in channel_name and '卫视' not in channel_name and '卡' not in channel_name and '儿' not in channel_name and '文' not in channel_name and 'CHC' not in channel_name and '新' not in channel_name and '山东' not in channel_name and '河北' not in channel_name and '哈哈' not in channel_name and '临沂' not in channel_name and '公共' not in channel_name and 'CETV' not in channel_name and '交通' not in channel_name and '冬' not in channel_name and '梨园' not in channel_name and '民生' not in channel_name and '综合' not in channel_name and '法制' not in channel_name and '齐鲁' not in channel_name and '自办' not in channel_name and '都市' not in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
