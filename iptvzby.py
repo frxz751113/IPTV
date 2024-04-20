@@ -17,7 +17,7 @@ open('live.txt', 'wb').write(r.content)
 
 keywords = ['美亚', 'axn电影', 'MAX电影', 'amc电影', '东森', '天映', '龙祥', 'HBO', '大爱', '莲花', '龙华', '纬来电影', 'ELTA']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-with open('live.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as TW:
+with open('live.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
     HK.write('\n港澳频道,#genre#\n')
     for line in file:
         if re.search(pattern, line):  # 如果行中有任意关键字
