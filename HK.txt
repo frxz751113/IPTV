@@ -1,0 +1,79 @@
+
+港澳频道,#genre#
+axn电影（港）,http://117.114.153.25:8180/TV00000000000000000076@HHZT
+CINEMAX电影（港）,http://117.114.153.25:8180/TV00000000000000000109@HHZT
+东森电影（台）,http://171.108.239.80:8181/tsfile/live/1010_1.m3u8?key=txiptv&playlive=1&authid=0
+东森超视（台）,rtmp://f13h.mine.nu/sat/tv331
+大爱（台）,https://pulltv1.wanfudaluye.com/live/tv1.m3u8
+大爱二台（台）,https://pulltv1.wanfudaluye.com/live/tv2.m3u8
+龙祥电影&系统硬解（台）,https://ctrl.laotv.la/live/Longxiang/index.m3u8
+天映频道&系统硬解（台）,https://ctrl.laotv.la/live/CHCA/index.m3u8
+amc电影&系统硬解（台）,https://ctrl.laotv.la/live/StarMovie/index.m3u8
+HBOHD&系统硬解（美）,https://ctrl.laotv.la/live/HBO/index.m3u8
+莲花电影&系统硬解（澳）,https://edge2.laotv.la/live/AomenLotus/index.m3u8
+东森电影&系统硬解（台）,https://edge1.laotv.la/live/DongsenForeignMovie/index.m3u8
+东森超视&系统硬解（台）,https://edge2.laotv.la/live/DongsenMovie/index.m3u8
+东森新闻台, http://livetv.skycf.eu.org/live.m3u8?c=9
+东森电影（台）,mitv://generationnexxxt.com:19806/08435f286ac744a0942899c551209779
+东森新闻（台）,mitv://generationnexxxt.com:19806/e1a899eded4d48578084c61957fb8c2b
+东森洋片（台）,mitv://generationnexxxt.com:19806/5e8420f5477344b9b7b39d9e96162ce1
+东森综合（台）,mitv://generationnexxxt.com:19806/a05a4d8b51f54013925315261a2c6aa9
+靖天映画（台）,mitv://generationnexxxt.com:19806/b723859f3ed94e5ba712148b209eefd0
+龙华偶像（台）,mitv://generationnexxxt.com:19806/5b720b1e1b404f129e7009363d3035f8
+HBO（台）,http://50.7.238.114:8278/hbohd_twn/playlist.m3u8?tid=MBBB7425808074258080&ct=19193&tsum=a0bdd395bfc4cf07d9414d5372f59ad2
+HBO HiTS（台）,http://51.77.65.194:27347/livehttpplay?channel_id=20091
+HBO family（台）,http://198.16.100.90:8278/fyi_twn/playlist.m3u8?tid=m99b80124e3b4&ct=18337&tsum=73f6f540497de9a5615b9bd55bec8853
+HBO Signature（台）,http://50.7.238.114:8278/hbosignature_twn/playlist.m3u8?tid=MD6D5767423357674233&ct=18392&tsum=995709f1100cf1b07964790160bfb4ee
+纬来电影（台）,http://50.7.238.114:8278/videolandmovie/playlist.m3u8?tid=MBCB4045365240453652&ct=19613&tsum=1305867fd94535b1205c82cd88334522
+龙华电影（台）,http://50.7.238.114:8278/xingwei_movie/playlist.m3u8?tid=MBAB2096754620967546&ct=18392&tsum=2c800c1f0b6cc98d2404608c294dcbc2
+龙华戏剧（台）,http://50.7.238.114:8278/lunghuaxiju_twn/playlist.m3u8?tid=MBAB4709384347093843&ct=19226&tsum=a2a7258f8565588e10b8da2f26ba8039
+龙华洋片（台）,http://50.7.238.114:8278/lunghuawestern_twn/playlist.m3u8?tid=m8fe1f2649ecd12830420&ct=17874&tsum=a6674ed93a8ec4ea4705c721b752d4db
+龙华偶像（台）,http://50.7.238.114:8278/lunghuaidol_twn/playlist.m3u8?tid=MD6D6087277960872779&ct=19249&tsum=83e30fd8200429793355d21bf37719ff
+美亚电影（台）,http://50.7.238.114:8278/meiyamovie_twn/playlist.m3u8?tid=mcfe3e109029013892155&ct=17874&tsum=164baeda6ab6c4160f2775128cfc6f4e
+ELTA综合（台）,http://50.7.238.114:8278/eltazonghe/playlist.m3u8?tid=MF0F9791060497910604&ct=19669&tsum=41d83c13104f8f7430f8121d79c7c5d6
+ELTA影剧（台）,http://50.7.238.114:8278/eltadrama_twn/playlist.m3u8?tid=mea60e416943110603068&ct=17874&tsum=ede38d2a218a34b5397af9d19e0c39a3
+东森电影（台）,http://50.7.238.114:8278/ettvmovie/playlist.m3u8?tid=MDED1943740419437404&ct=19225&tsum=120834a4218c4b5c3bb19efb8116f859
+东森洋片（台）,http://50.7.238.114:8278/ettvwestern/playlist.m3u8?tid=MC2C7134276471342764&ct=19225&tsum=4889d0c08d077336bd5066b912891aee
+东森超视（台）,http://50.7.238.114:8278/ettvsuper/playlist.m3u8?tid=MA4A3005409230054092&ct=19225&tsum=c5d89f66fa1a8bcd26f482d4a370def5
+东森财经（台）,http://50.7.238.114:8278/ettvcaijing_twn/playlist.m3u8?tid=m999b5a0f7fca17599138&ct=17874&tsum=345085d2d6d4401fdb3da968dfee5a54
+HBO（联通正常）,http://50.7.238.114:8278/hbohd_twn/playlist.m3u8?tid=MBBB7425808074258080&ct=19193&tsum=a0bdd395bfc4cf07d9414d5372f59ad2
+HBO HiTS（联通正常）,http://51.77.65.194:27347/livehttpplay?channel_id=20091
+HBO family（联通正常）,http://50.7.238.114:8278/fyi_twn/playlist.m3u8?tid=m99b80124e3b4&ct=18337&tsum=73f6f540497de9a5615b9bd55bec8853
+HBO Signature（联通正常）,http://50.7.238.114:8278/hbosignature_twn/playlist.m3u8?tid=MD6D5767423357674233&ct=18392&tsum=995709f1100cf1b07964790160bfb4ee
+纬来电影（联通正常）,http://50.7.238.114:8278/videolandmovie/playlist.m3u8?tid=MBCB4045365240453652&ct=19613&tsum=1305867fd94535b1205c82cd88334522
+龙华电影（联通正常）,http://50.7.238.114:8278/xingwei_movie/playlist.m3u8?tid=MBAB2096754620967546&ct=18392&tsum=2c800c1f0b6cc98d2404608c294dcbc2
+龙华戏剧（联通正常）,http://50.7.238.114:8278/lunghuaxiju_twn/playlist.m3u8?tid=MBAB4709384347093843&ct=19226&tsum=a2a7258f8565588e10b8da2f26ba8039
+龙华洋片（联通正常）,http://50.7.238.114:8278/lunghuawestern_twn/playlist.m3u8?tid=m8fe1f2649ecd12830420&ct=17874&tsum=a6674ed93a8ec4ea4705c721b752d4db
+龙华偶像（联通正常）,http://50.7.238.114:8278/lunghuaidol_twn/playlist.m3u8?tid=MD6D6087277960872779&ct=19249&tsum=83e30fd8200429793355d21bf37719ff
+美亚电影（联通正常）,http://50.7.238.114:8278/meiyamovie_twn/playlist.m3u8?tid=MFEF1001328410013284&ct=19226&tsum=9839709ca0f37641c5d1ba962c3bc739
+ELTA综合（联通正常）,http://50.7.238.114:8278/eltazonghe/playlist.m3u8?tid=MF0F9791060497910604&ct=19669&tsum=41d83c13104f8f7430f8121d79c7c5d6
+东森电影（联通正常）,http://50.7.238.114:8278/ettvmovie/playlist.m3u8?tid=MDED1943740419437404&ct=19225&tsum=120834a4218c4b5c3bb19efb8116f859
+东森洋片（联通正常）,http://50.7.238.114:8278/ettvwestern/playlist.m3u8?tid=MC2C7134276471342764&ct=19225&tsum=4889d0c08d077336bd5066b912891aee
+东森超视（联通正常）,http://50.7.238.114:8278/ettvsuper/playlist.m3u8?tid=MA4A3005409230054092&ct=19225&tsum=c5d89f66fa1a8bcd26f482d4a370def5
+东森财经（联通正常）,http://50.7.238.114:8278/ettvcaijing_twn/playlist.m3u8?tid=m999b5a0f7fca17599138&ct=17874&tsum=345085d2d6d4401fdb3da968dfee5a54
+东森综合（联通正常）,http://50.7.238.114:8278/ettvzhonghe/playlist.m3u8?tid=MC4C1214674912146749&ct=19254&tsum=9b96a50ba99dca1a02a27b05a6fb4b0d
+ELTA影剧（台）,http://50.7.238.114:8278/eltadrama_twn/playlist.m3u8?tid=mea60e416943110603068&ct=17874&tsum=ede38d2a218a34b5397af9d19e0c39a3
+ELTA综合（台）,http://50.7.238.114:8278/eltazonghe/playlist.m3u8?tid=MF0F9791060497910604&ct=19669&tsum=41d83c13104f8f7430f8121d79c7c5d6
+东森电影（台）,http://198.16.100.90:8278/ettvmovie/playlist.m3u8?tid=md2ba4c243ed411481253&ct=17874&tsum=4637ffbc3260e78931b566300e618313#mitv://generationnexxxt.com:19806/08435f286ac744a0942899c551209779
+东森洋片（台）,http://198.16.100.90:8278/ettvwestern/playlist.m3u8?tid=MC2C7134276471342764&ct=19225&tsum=4889d0c08d077336bd5066b912891aee
+龙华偶像（台）,http://198.16.100.90:8278/lunghuaidol_twn/playlist.m3u8?tid=MD6D6087277960872779&ct=19249&tsum=83e30fd8200429793355d21bf37719ff
+龙华戏剧（台）,http://198.16.100.90:8278/lunghuaxiju_twn/playlist.m3u8?tid=MBAB4709384347093843&ct=19226&tsum=a2a7258f8565588e10b8da2f26ba8039
+龙华洋片（台）,http://198.16.100.90:8278/lunghuawestern_twn/playlist.m3u8?tid=m8fe1f2649ecd12830420&ct=17874&tsum=a6674ed93a8ec4ea4705c721b752d4db
+美亚电影（台）,http://50.7.238.114:8278/meiyamovie_twn/playlist.m3u8?tid=MFEF1001328410013284&ct=19226&tsum=9839709ca0f37641c5d1ba962c3bc739
+纬来电影（台）,http://198.16.100.90:8278/videolandmovie/playlist.m3u8?tid=MBCB4045365240453652&ct=19613&tsum=1305867fd94535b1205c82cd88334522#mitv://generationnexxxt.com:19806/429796f5f00946fa933e400729286c7e
+HBO Family（台）,mitv://generationnexxxt.com:19806/8a0208ebdfa04b5eab112f0c8b01719cHBO#http://198.16.100.90:8278/fyi_twn/playlist.m3u8?tid=m99b80124e3b4&ct=18337&tsum=73f6f540497de9a5615b9bd55bec8853HBO#P2p://generationnexxxt.com:19806/8a0208ebdfa04b5eab112f0c8b01719c
+HBO Signature（台）,http://50.7.238.114:8278/hbosignature_twn/playlist.m3u8?tid=MD6D5767423357674233&ct=18392&tsum=995709f1100cf1b07964790160bfb4ee
+HBO强档巨献（台）,mitv://generationnexxxt.com:19806/563a5981b8ad4df085b59ce98bbecb95
+HBO原创巨献（台）,mitv://generationnexxxt.com:19806/bd0a33ff8b6f4fe9ba7791ad73c6c16e
+大爱2台（台）,mitv://generationnexxxt.com:19806/2036b83c58e344c782eb154b233c8c77#P2p://generationnexxxt.com:19806/2036b83c58e344c782eb154b233c8c77
+东森超视台（台）,mitv://generationnexxxt.com:19806/5121f16c4b634c1683e9444aa68494b6
+东森戏剧台（台）,mitv://generationnexxxt.com:19806/4fae332a68a04f3fa77a158ac1fa4bce
+东森新闻台（台）,mitv://generationnexxxt.com:19806/35983e2efd5c44bf84bfb2977bbbc96d
+东森亚洲卫视（台）,mitv://generationnexxxt.com:19806/8a43d9cb067b47aaa8fd5f550930be0c
+东森洋片台（台）,P2p://generationnexxxt.com:19806/5e8420f5477344b9b7b39d9e96162ce1
+东森幼幼台（台）,mitv://generationnexxxt.com:19806/baa16215e2224e399f6dc71eb3576ed4
+龙华电影（台）,P2p://generationnexxxt.com:19806/1df6f5f0993a46faa17f676518654709
+龙祥电影（台）,mitv://generationnexxxt.com:19806/78502c9b515845a7baca6a3a6ea88b8a#P2p://generationnexxxt.com:19806/78502c9b515845a7baca6a3a6ea88b8a
+美亚电影台（台）,mitv://generationnexxxt.com:19806/a850e570b868424c94319a2652ca7c62
+美亚电影（港）,P2p://generationnexxxt.com:19806/ee16565eb5fe46be8d22cbbde1fa9fae
+纬来电影（台）,mitv://generationnexxxt.com:19806/429796f5f00946fa933e400729286c7e
