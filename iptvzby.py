@@ -11,16 +11,16 @@ from datetime import datetime
 
 
 #  获取远程港澳台直播源文件
-url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"
+url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"          #采集地址
 r = requests.get(url)
-open('live.txt', 'wb').write(r.content)
+open('live.txt', 'wb').write(r.content)         #打开源文件名
 
 keywords = ['美亚', 'axn电影', 'MAX电影', 'amc电影', '东森', '天映', '龙祥', 'HBO', '大爱', '莲花', '龙华', '纬来电影', 'ELTA']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-with open('live.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
-    HK.write('\n港澳频道,#genre#\n')
+with open('live.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:    #定义临时分类文件名
+    HK.write('\n港澳频道,#genre#\n')         #定义分类名
     for line in file:
-        if re.search(pattern, line):  # 如果行中有任意关键字
+        if re.search(pattern, line):  # 如果源文件行中有任意关键字
             HK.write(line)  # 将该行写入输出文件
             
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"
