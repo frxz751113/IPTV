@@ -11,9 +11,17 @@ from datetime import datetime
 
 
 #  获取远程港澳台直播源文件
-url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"
+url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt ﹠ https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)
+
+keywords = ['美亚', 'axn电影', 'MAX电影', 'amc电影', '东森', '天映', '龙祥', 'HBO', '大爱', '莲花', '龙华', '纬来电影', 'ELTA']  # 需要提取的关键字列表
+pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
+with open('DIYP-v4.txt ﹠ live.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as TW:
+    HK.write('\n港澳频道,#genre#\n')
+    for line in file:
+        if re.search(pattern, line):  # 如果行中有任意关键字
+            HK.write(line)  # 将该行写入输出文件
 
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
@@ -25,7 +33,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', enc
 
 # 读取要合并的香港频道和台湾频道文件
 file_contents = []
-file_paths = ["TW.txt"]  # 替换为实际的文件路径列表
+file_paths = ["HK.txt","TW.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
