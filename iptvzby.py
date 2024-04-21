@@ -481,6 +481,7 @@ with open("iptv_list.txt", "w", encoding="utf-8") as output:
 os.remove("iptv.txt")
 os.remove("GAT.txt")
 os.remove("hn.txt")
+os.remove("HK.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
