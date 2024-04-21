@@ -2,7 +2,7 @@ name: IPTV
 
 on:
   schedule:
-    - cron: '0 3,15* * * *'
+    - cron: '0 */4 * * *'
   workflow_dispatch:
     分支:
       - main
