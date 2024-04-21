@@ -180,22 +180,6 @@ for url in urls:
                             name = name.replace("超高", "")
                             name = name.replace("频道", "")
                             name = name.replace("-", "")
-                            name = name.replace("测试001", "测试TVB星河")
-                            name = name.replace("测试002", "测试凤凰中文")
-                            name = name.replace("测试003", "测试凤凰中文")
-                            name = name.replace("测试004", "测试私人影院")
-                            name = name.replace("测试005", "测试私人影院")
-                            name = name.replace("测试006", "测试东森洋片")
-                            name = name.replace("测试007", "测试东森电影")
-                            name = name.replace("测试008", "测试AXN电影")
-                            name = name.replace("测试009", "测试好莱坞电影")
-                            name = name.replace("测试010", "测试龙祥时代")
-                            name = name.replace("测试011", "测试凤凰香港")
-                            name = name.replace("测试014", "测试凤凰中文")
-                            name = name.replace("测试015", "测试星空卫视")
-                            name = name.replace("测试016", "测试澳门莲花")
-                            name = name.replace("测试012", "空1")
-                            name = name.replace("测试013", "空2")
                             name = name.replace("007广西影视一3", "广西影视")
                             name = name.replace(" ", "")
                             name = name.replace("PLUS", "+")
@@ -443,7 +427,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('天外频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '龙祥' in channel_name or '测试' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name and 'TVB' not in channel_name:
+        if '龙祥' in channel_name or '测试' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name and 'TV' not in channel_name:
        # if 'CCTV' not in channel_name and '卫视' not in channel_name and '卡' not in channel_name and '儿' not in channel_name and '文' not in channel_name and 'CHC' not in channel_name and '新' not in channel_name and '山东' not in channel_name and '河北' not in channel_name and '哈哈' not in channel_name and '临沂' not in channel_name and '公共' not in channel_name and 'CETV' not in channel_name and '交通' not in channel_name and '冬' not in channel_name and '梨园' not in channel_name and '民生' not in channel_name and '综合' not in channel_name and '法制' not in channel_name and '齐鲁' not in channel_name and '自办' not in channel_name and '都市' not in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
