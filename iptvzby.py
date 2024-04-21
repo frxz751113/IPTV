@@ -11,7 +11,7 @@ from datetime import datetime
 
 
 #  获取远程港澳台直播源文件
-url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"          #采集地址
+url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"          #源采集地址
 r = requests.get(url)
 open('live.txt', 'wb').write(r.content)         #打开源文件名
 
@@ -47,7 +47,7 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 
-# 扫源
+# 扫源测绘空间地址
 urls = [
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",  # 湖南
@@ -172,7 +172,7 @@ for url in urls:
                             urld = f"{url_x}{urlx}"
 
                         if name and urld:
-                            # 删除特定文字
+                            # 替换特定文字
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
@@ -443,7 +443,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('天外频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '龙祥' in channel_name or '测试' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name:
+        if '龙祥' in channel_name or '测试' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰香港' in channel_name and 'TVB' not in channel_name:
        # if 'CCTV' not in channel_name and '卫视' not in channel_name and '卡' not in channel_name and '儿' not in channel_name and '文' not in channel_name and 'CHC' not in channel_name and '新' not in channel_name and '山东' not in channel_name and '河北' not in channel_name and '哈哈' not in channel_name and '临沂' not in channel_name and '公共' not in channel_name and 'CETV' not in channel_name and '交通' not in channel_name and '冬' not in channel_name and '梨园' not in channel_name and '民生' not in channel_name and '综合' not in channel_name and '法制' not in channel_name and '齐鲁' not in channel_name and '自办' not in channel_name and '都市' not in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
