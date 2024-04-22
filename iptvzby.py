@@ -11,9 +11,9 @@ from datetime import datetime
 
 
 #  获取远程港澳台直播源文件
-url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"          #源采集地址
-r = requests.get(url)
-open('live.txt', 'wb').write(r.content)         #打开源文件名
+#url = "https://raw.gitcode.com/mengxiansheng/live/raw/main/live.txt"          #源采集地址
+#r = requests.get(url)
+open('IPTV1.txt', 'wb').write(r.content)         #打开源文件名
 
 keywords = ['美亚', 'axn电影', 'MAX电影', 'amc电影', '东森', '天映', '龙祥', 'HBO', '大爱', '莲花', '龙华', '纬来电影', 'ELTA']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
