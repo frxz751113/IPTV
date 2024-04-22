@@ -2,7 +2,7 @@ name: IPTV
 
 on:
   schedule:
-    - cron: '0 */3 * * *'
+    - cron: '0 */3 * * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
   workflow_dispatch:
     分支:
       - main
@@ -24,7 +24,7 @@ jobs:
         run: pip install selenium requests futures eventlet
 
       - name: Run iptv
-        run: python ${{ github.workspace }}/iptvzby.py
+        run: python ${{ github.workspace }}/iptvzby.py      #这里更改要运行的py
 
       - name: 提交更改
         run: |
