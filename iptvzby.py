@@ -23,7 +23,8 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', enc
     for line in file:
         if re.search(pattern, line):  # 如果源文件行中有任意关键字
             if 'CCTV' not in channel_name and 'genre' not in channel_name and 'genre' not in channel_url:
-               HK.write(line)  # 将该行写入输出文件
+                if channel_name in channel_counters:
+                  HK.write(line)  # 将该行写入输出文件
             
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"
 r = requests.get(url)
@@ -37,7 +38,8 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', enc
     for line in file:
         if re.search(pattern, line):  # 如果行中有任意关键字
            if 'CCTV' not in channel_name and 'genre' not in channel_name and 'genre' not in channel_url:
-              TW.write(line)  # 将该行写入输出文件
+              if channel_name in channel_counters:
+                  TW.write(line)  # 将该行写入输出文件
 
 # 读取要合并的香港频道和台湾频道文件
 file_contents = []
