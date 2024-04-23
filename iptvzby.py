@@ -19,6 +19,7 @@ keywords = ['美亚', 'axn电影', 'MAX电影', 'AMC电影', '东森', '天映',
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
 if 'CCTV' not in channel_name and 'genre' not in channel_name and 'genre' not in channel_url:
+    continue
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:    #定义临时分类文件名
     HK.write('\n港澳频道,#genre#\n')         #定义分类名
     for line in file:
@@ -33,6 +34,7 @@ keywords = ['重温经典', 'NewTV', '热剧 8M1080', '超级电影 8M1080', '�
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
 if 'CCTV' not in channel_name and 'genre' not in channel_name and 'genre' not in channel_url:
+    continue
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
     TW.write('\n数字频道,#genre#\n')
     for line in file:
