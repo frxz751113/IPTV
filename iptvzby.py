@@ -30,6 +30,7 @@ open('DIYP-v4.txt', 'wb').write(r.content)
 
 keywords = ['重温经典', 'NewTV', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
+ pattern = r"^(.*?),(?!#genre#)(.*?)$"
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
     TW.write('\n数字频道,#genre#\n')
     for line in file:
