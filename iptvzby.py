@@ -15,7 +15,7 @@ url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)         #打开源文件名
 
-keywords = ['凤凰中文','美亚', 'axn电影', 'MAX电影', 'AMC电影', '东森电影', '天映', '龙祥', '星光', '16M', '龙华','八大戏剧', '七彩戏剧', '纬来电影']  # 需要提取的关键字列表
+keywords = ['凤凰中文','美亚', 'axn电影', 'MAX电影', 'AMC电影', '东森电影', '天映', '龙祥', '星光视界', '16M', '龙华', '八大', '港剧', '七彩戏剧', '纬来电影']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:    #定义临时分类文件名
