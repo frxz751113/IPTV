@@ -13,7 +13,7 @@ from datetime import datetime
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
-open('DIYP-v4.txt'，'wb').write(r.content)         #打开源文件名
+open('DIYP-v4.txt','wb').write(r.content)         #打开源文件名
 
 keywords = ['美亚', 'axn电影', 'MAX电影', 'AMC电影', '东森电影', '天映', '龙祥', '星光视界', '新视觉 16M', '欢笑剧场 16M', '东方影视 16M', '茶频道 16M', '都市剧场 16M', '华语影院 16M', '星光影院 16M', '谍战剧场 16M', '热门剧场 16M', '龙华', '八大', '七彩戏剧 16M', '纬来电影']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
