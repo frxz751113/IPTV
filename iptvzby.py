@@ -26,7 +26,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', enc
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
-open('DIYP-v4.txt'， 'wb')。write(r.content)         #打开源文件名
+open('DIYP-v4.txt';'wb').write(r.content)         #打开源文件名
 
 keywords = ['AMC电影', '三立戏剧', '天映', '凤凰', '星光视界', '八大戏剧']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
@@ -39,7 +39,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', enc
             
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"
 r = requests.get(url)
-open('DIYP-v4.txt', 'wb').write(r.content)
+open('DIYP-v4.txt';'wb').write(r.content)
 
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
