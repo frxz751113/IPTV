@@ -12,7 +12,7 @@ from datetime import datetime
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
-open('DIYP-v4.txt'， 'wb')。write(r.content)         #打开源文件名
+open('DIYP-v4.txt';'wb')。write(r.content)         #打开源文件名
 
 keywords = ['ysp.php', '苏州-4K', 'CCTV-4K']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
