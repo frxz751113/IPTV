@@ -22,15 +22,6 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', enc
     for line in file:
         if re.search(pattern, line):  # 如果源文件行中有任意关键字
            DL.write(line)  # 将该行写入输出文件
-
-keywords = ['/hls/']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('JD.txt', 'w', encoding='utf-8') as JD:
-    JD.write('\n酒店频道,#genre#\n')
-    for line in file:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-          JD.write(line)  # 将该行写入输出文件
             
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
@@ -50,7 +41,7 @@ url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV
 r = requests.get(url)
 open('DIYP-v4.txt', 'wb').write(r.content)
 
-keywords = ['重温经典', 'NewTV', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
+keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
@@ -61,7 +52,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', enc
 
 # 读取要合并的香港频道和台湾频道文件
 file_contents = []
-file_paths = ["JD.txt", "DL.txt","HK.txt","TW.txt"]  # 替换为实际的文件路径列表
+file_paths = ["DL.txt","HK.txt","TW.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
@@ -437,23 +428,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
-                        
-    channel_counters = {}
-    file.write('综合频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        #if '影' in channel_name or '剧' in channel_name or '经典' in channel_name or '4K' in channel_name or '石家庄娱乐' in channel_name:
-        if 'CCTV' not in channel_name and '卫视' not in channel_name and '卡' not in channel_name:
-            if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
-                        
+                                                
     channel_counters = {}
     file.write('天外频道,#genre#\n')
     for result in results:
@@ -493,7 +468,6 @@ os.remove("GAT.txt")
 os.remove("hn.txt")
 os.remove("HK.txt")
 os.remove("DL.txt")
-os.remove("JD.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
