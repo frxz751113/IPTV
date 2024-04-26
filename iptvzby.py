@@ -43,7 +43,7 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', enc
 
 # 读取要合并的香港频道和台湾频道文件
 file_contents = []
-file_paths = ["DL.txt","HK.txt","TW.txt"]  # 替换为实际的文件路径列表
+file_paths = ["DL.txt","TW.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
@@ -457,7 +457,7 @@ with open("iptv_list.txt", "w", encoding="utf-8") as output:
 os.remove("iptv.txt")
 os.remove("GAT.txt")
 os.remove("hn.txt")
-os.remove("HK.txt")
+#os.remove("HK.txt")
 os.remove("DL.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
