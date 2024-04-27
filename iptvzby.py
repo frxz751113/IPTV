@@ -342,7 +342,7 @@ def worker():
                 normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
                 ####### print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
                 # 检查分辨率是否大于0
-                if width > 1900 and height > 1000:
+                if width > 720 :
                    return url  # 返回有效的IP和端口
            
 
