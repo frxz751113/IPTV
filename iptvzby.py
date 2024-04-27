@@ -341,11 +341,7 @@ def worker():
                 # print(f"下载速度：{download_speed:.3f} kB/s")
                 normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
                 ####### print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
-                # 检查分辨率是否大于0
-                if width > 720 :
-                   return url  # 返回有效的IP和端口
-           
-
+                
                 # 删除下载的文件
                 os.remove(ts_lists_0)
                 result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
