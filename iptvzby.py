@@ -343,7 +343,7 @@ def worker():
                 ####### print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
                 # 检查分辨率是否大于0
                 if width > 1900 and height > 1000:
-                   return ip_port  # 返回有效的IP和端口
+                   return url  # 返回有效的IP和端口
            
 
                 # 删除下载的文件
