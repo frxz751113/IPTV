@@ -330,7 +330,7 @@ def worker():
                 content = requests.get(ts_url).content
                 end_time = time.time()
                 response_time = (end_time - start_time) * 1
-                if width > 0 and height > 0:
+                if width > 1920 and height > 1080:
                 return ip_port  # 返回有效的IP和端口
             
 
