@@ -3,8 +3,8 @@ name: itvlist
 on:
   schedule:
     - cron: '0 21 * * *'
-  #push:
-    branches:
+  push:
+    分支:
       - main
 
 jobs:
