@@ -15,11 +15,11 @@ url = "https://raw.githubusercontent.com/frxz751113/IPTVzb/main/%E5%B9%BF%E4%B8%
 r = requests.get(url)
 open('广东电信.txt','wb').write(r.content)         #打开源文件名
 
-keywords = ['广', '圳', '4K']  # 需要提取的关键字列表
+keywords = ['广', '4K']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
 with open('广东电信.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', encoding='utf-8') as DL:    #定义临时分类文件名
-    DL.write('\n代理频道,#genre#\n')         #定义分类名
+    DL.write('\n广东频道,#genre#\n')         #定义分类名
     for line in file:
         if re.search(pattern, line):  # 如果源文件行中有任意关键字
            DL.write(line)  # 将该行写入输出文件
@@ -397,22 +397,6 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
-
-    channel_counters = {}
-    file.write('影剧频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        if '影' in channel_name or '剧' in channel_name or '娱乐' in channel_name or '场' in channel_name:
-            if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
-
 
     channel_counters = {}
     file.write('卫视频道,#genre#\n')
