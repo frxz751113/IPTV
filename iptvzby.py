@@ -9,29 +9,26 @@ import threading
 from queue import Queue
 from datetime import datetime
 
+
+#  获取远程港澳台直播源文件
+url = "https://raw.githubusercontent.com/frxz751113/IPTVzb/main/%E5%B9%BF%E4%B8%9C%E7%94%B5%E4%BF%A1.txt"          #源采集地址
+r = requests.get(url)
+open('广东电信.txt','wb').write(r.content)         #打开源文件名
+
+keywords = ['广', '圳', '4K']  # 需要提取的关键字列表
+pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
+#pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
+with open('广东电信.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', encoding='utf-8') as DL:    #定义临时分类文件名
+    DL.write('\n代理频道,#genre#\n')         #定义分类名
+    for line in file:
+        if re.search(pattern, line):  # 如果源文件行中有任意关键字
+           DL.write(line)  # 将该行写入输出文件
+
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
 open('DIYP-v4.txt','wb').write(r.content)         #打开源文件名
 
-keywords = ['ysp.php', '苏州-4K', 'CCTV-4K']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
-with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', encoding='utf-8') as DL:    #定义临时分类文件名
-    DL.write('\n代理频道,#genre#\n')         #定义分类名
-    for line in file:
-        if re.search(pattern, line):  # 如果源文件行中有任意关键字
-           DL.write(line)  # 将该行写入输出文件
-            
-#keywords = ['AMC电影', '三立戏剧', '天映', '凤凰香港', '星光视界', '八大戏剧']  # 需要提取的关键字列表
-#pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-####pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
-#with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:    #定义临时分类文件名
-    #HK.write('\n港澳频道,#genre#\n')         #定义分类名
-    #for line in file:
-        #if re.search(pattern, line):  # 如果源文件行中有任意关键字
-           #HK.write(line)  # 将该行写入输出文件
-            
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
