@@ -1,12 +1,12 @@
-name: 1080
+name: itvlist
 
 on:
   schedule:
-    - cron: '30 */7 * * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
-  workflow_dispatch:
-    分支:
+    - cron: '0 21 * * *'
+  push:
+    branches:
       - main
-      
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -23,15 +23,24 @@ jobs:
       - name: Install dependencies
         run: pip install selenium requests futures eventlet
 
-      - name: Run iptv
-        run: python ${{ github.workspace }}/1080.py      #这里更改要运行的py
+      - name: Run itv_all
+        run: python ${{ github.workspace }}/itv_all.py
 
+      #- name: Run cctv
+        #run: python ${{ github.workspace }}/cctv.py
+        
+      #- name: Run weishi
+        #run: python ${{ github.workspace }}/weishi.py
+        
+      #- name: Run qita
+        #run: python ${{ github.workspace }}/qita.py
+        
       - name: 提交更改
         run: |
-          git config --local user.email "mlyuanlang@126.com"
-          git config --local user.name "mlvjfchen"
+          git config --local user.email "ssili@126.com"
+          git config --local user.name "ssili126"
           git add .
           git commit *.txt -m "Add generated file"
-          # git commit *.m3u -m "Add generated file"
+          git commit *.m3u -m "Add generated file"
           #git pull --rebase
           git push -f
