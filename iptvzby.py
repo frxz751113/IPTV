@@ -324,7 +324,7 @@ def worker():
             ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]  # 获取m3u8文件下视频流后缀
             ts_lists_0 = ts_lists[0].rstrip(ts_lists[0].split('.ts')[-1])  # m3u8链接前缀
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
-
+            
             # 多获取的视频数据进行5秒钟限制
             with eventlet.Timeout(1.5, False):  #################////////////////////////////////
                 start_time = time.time()
@@ -342,11 +342,11 @@ def worker():
                 normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
                 # print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
 
-                # 删除下载的文件
-                os.remove(ts_lists_0)
-                result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
-                results.append(result)
-                numberx = (len(results) + len(error_channels)) / len(channels) * 100
+                if normalized_speed >= 1:
+                    if file_size >= 12000000:
+                        result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
+                        results.append(result)
+                        numberx = (len(results) + len(error_channels)) / len(channels) * 100
                 print(
                     f"可用频道：{len(results)} 个 , 不可用频道：{len(error_channels)} 个 , 总频道：{len(channels)} 个 ,总进度：{numberx:.2f} %。")
         except:
