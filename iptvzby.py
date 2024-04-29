@@ -9,21 +9,6 @@ import threading
 from queue import Queue
 from datetime import datetime
 
-
-#  获取远程港澳台直播源文件
-#url = "https://raw.githubusercontent.com/frxz751113/IPTVzb/main/%E5%B9%BF%E4%B8%9C%E7%94%B5%E4%BF%A1.txt"          #源采集地址
-#r = requests.get(url)
-#open('广东电信.txt','wb').write(r.content)         #打开源文件名
-
-#keywords = ['广', '4K']  # 需要提取的关键字列表
-#pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$"  #以分类直接复制
-#with open('广东电信.txt', 'r', encoding='utf-8') as file, open('DL.txt', 'w', encoding='utf-8') as DL:    #定义临时分类文件名
-    #DL.write('\n广东频道,#genre#\n')         #定义分类名
-    #for line in file:
-        #if re.search(pattern, line):  # 如果源文件行中有任意关键字
-           #DL.write(line)  # 将该行写入输出文件
-
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
@@ -52,10 +37,11 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源测绘空间地址
 urls = [
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaGViZWki",#河北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iU2hhYW54aSI%3D",  # Shaanxi (陕西)
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",  # 河南
+    #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22henan%22",    #河南
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族
-    "https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西
+    #"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西
 ]
 def modify_urls(url):
     modified_urls = []
@@ -401,7 +387,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('卫视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖北卫视' in channel_name or '凤凰卫视' in channel_name or '湖南卫视' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name or '剧' in channel_name:
+        if '湖北卫视' in channel_name or '凤凰卫视' in channel_name or '湖南卫视' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -411,23 +397,6 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
-
-        channel_counters = {}
-    file.write('地方频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        #if '龙祥' in channel_name or '酒店' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
-        if 'CCTV' not in channel_name and '卫视' not in channel_name and 'TV' not in channel_name and '儿' not in channel_name and '文' not in channel_name and '新' not in channel_name and '哈哈' not in channel_name and '公共' not in channel_name and 'CETV' not in channel_name and '交通' not in channel_name and '冬' not in channel_name and '梨园' not in channel_name and '民生' not in channel_name and '综合' not in channel_name and '法制' not in channel_name and '齐鲁' not in channel_name and '自办' not in channel_name and '都市' not in channel_name:
-             if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
-
                                                 
     channel_counters = {}
     file.write('天外频道,#genre#\n')
@@ -467,7 +436,6 @@ os.remove("iptv.txt")
 os.remove("GAT.txt")
 os.remove("hn.txt")
 #os.remove("HK.txt")
-#os.remove("DL.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
