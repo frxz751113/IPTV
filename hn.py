@@ -9,17 +9,42 @@ import threading
 from queue import Queue
 from datetime import datetime
 
-# 网址：https://fofa.info/和https://www.zoomeye.org
-# 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
+#  获取远程港澳台直播源文件
+url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
+r = requests.get(url)
+open('DIYP-v4.txt','wb').write(r.content)         #打开源文件名
 
-regions = {
+keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
+pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
+#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
+with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
+    TW.write('\n数字频道,#genre#\n')
+    for line in file:
+        if re.search(pattern, line):  # 如果行中有任意关键字
+          TW.write(line)  # 将该行写入输出文件
+
+# 读取要合并的香港频道和台湾频道文件
+file_contents = []
+file_paths = ["TW.txt"]  # 替换为实际的文件路径列表
+for file_path in file_paths:
+    with open(file_path, 'r', encoding="utf-8") as file:
+        content = file.read()
+        file_contents.append(content)
+# 生成合并后的文件
+with open("GAT.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
+
+
+# 扫源测绘空间地址
+# 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
+urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
     "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
     "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
     "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
-}
+]
 def modify_urls(url):
     modified_urls = []
     ip_start_index = url.find("//") + 2
@@ -363,7 +388,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('卫视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖北卫视' in channel_name or '凤凰卫视' in channel_name or '湖南卫视' in channel_name or '石家庄娱乐' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name:
+        if '湖北卫视' in channel_name or '卫视' in channel_name or '湖南卫视' in channel_name or '石家庄娱乐' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -389,27 +414,10 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
             else:
                 file.write(f"{channel_name},{channel_url}\n")
                 channel_counters[channel_name] = 1
-
-
-    channel_counters = {}
-    file.write('天外频道,#genre#\n')
-    for result in results:
-        channel_name, channel_url, speed = result
-        if '龙祥' in channel_name or '酒店' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
-          if 'CCTV' not in channel_name and '卫视' not in channel_name and 'TV' not in channel_name and '儿' not in channel_name and '文' not in channel_name and 'CHC' not in channel_name and '新' not in channel_name and '山东' not in channel_name and '河北' not in channel_name and '哈哈' not in channel_name and '临沂' not in channel_name and '公共' not in channel_name and 'CETV' not in channel_name and '交通' not in channel_name and '冬' not in channel_name and '梨园' not in channel_name and '民生' not in channel_name and '综合' not in channel_name and '法制' not in channel_name and '齐鲁' not in channel_name and '自办' not in channel_name and '都市' not in channel_name:
-            if channel_name in channel_counters:
-                if channel_counters[channel_name] >= result_counter:
-                    continue
-                else:
-                    file.write(f"{channel_name},{channel_url}\n")
-                    channel_counters[channel_name] += 1
-            else:
-                file.write(f"{channel_name},{channel_url}\n")
-                channel_counters[channel_name] = 1
       
 # 合并自定义频道文件内容
 file_contents = []
-file_paths = ["hn.txt"]  # 替换为实际的文件路径列表
+file_paths = ["hn.txt", "GAT.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
@@ -426,5 +434,9 @@ with open("湖南.txt", "w", encoding="utf-8") as output:
     #output.write(f"{now.strftime("%H:%M:%S")},url\n")
 
 os.remove("iptv.txt")
+os.remove("GAT.txt")
 os.remove("hn.txt")
+#os.remove("HK.txt")
+os.remove("DIYP-v4.txt")
+os.remove("TW.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内湖南.txt文件！")
