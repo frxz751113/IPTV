@@ -23,11 +23,9 @@ jobs:
       - name: Install dependencies
         run: pip install selenium requests futures eventlet
 
-      #- name: Run iptv
-        #run: python ${{ github.workspace }}/iptvzby.py      #这里更改要运行的py
       - name: Run iptv
-        run: python ${{ github.workspace }}/hn.py      #这里更改要运行的py
-
+        run: python ${{ github.workspace }}/iptvzby.py      #这里更改要运行的py
+      
       - name: 提交更改
         run: |
           git config --local user.email "mlyuanlang@126.com"
