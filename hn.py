@@ -38,13 +38,8 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 扫源测绘空间地址
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 urls = [
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
-    #"https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
-    #"https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
-    #"https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
-]
+    "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iU2ljaHVhbiI%3D",  # Sichuan (四川)
+   ]
 def modify_urls(url):
     modified_urls = []
     ip_start_index = url.find("//") + 2
@@ -403,8 +398,8 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('地方频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if 'CHC' in channel_name or '湖南' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
-        #if 'CCTV' not in channel_name and '卫视' not in channel_name:
+        #if 'CHC' in channel_name or '湖南' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
+        if 'CCTV' not in channel_name and '卫视' not in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -424,7 +419,7 @@ for file_path in file_paths:
         file_contents.append(content)
 
 # 写入合并后的文件
-with open("湖南.txt", "w", encoding="utf-8") as output:
+with open("四川.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 # 写入更新日期时间
@@ -439,4 +434,4 @@ os.remove("hn.txt")
 #os.remove("HK.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
-print("任务运行完毕，分类频道列表可查看文件夹内湖南.txt文件！")
+print("任务运行完毕，分类频道列表可查看文件夹内四川.txt文件！")
