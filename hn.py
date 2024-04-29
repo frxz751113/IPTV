@@ -13,9 +13,36 @@ from datetime import datetime
 # 扫源测绘空间地址
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 urls = [
-     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5YyXIg%3D%3D",  # 湖北
-     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",  # 湖南
-       ]
+    "湖南": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rmW5Y2XIg%3D%3D",
+    "长沙": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
+    "娄底": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ibG91ZGki",
+    "株洲": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemh1emhvdSI%3D",
+    "岳阳":" https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieXVleWFuZyI%3D",
+    "衡阳": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
+    "郴州": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hlbnpob3Ui",
+    "湘潭": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieGlhbmd0YW4i",
+    "常德": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
+    "益阳": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieWl5YW5nIg%3D%3D",
+    "永州": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ieW9uZ3pob3Ui",
+    "怀化": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaHVhaWh1YSI%3D",
+    "邵阳": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0ic2hhb3lhbmci",
+    "张家界": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iemhhbmdqaWFqaWUi",
+    "湖南2":"https://www.zoomeye.org/searchResult?q=%2Fiptv%2Flive%2Fzh_cn.js%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22hunan%22",
+    "长沙2": "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
+    "衡阳2": "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
+    "株洲2": "https://www.zoomeye.org/searchResult?q=city%3A%22zhuzhou%22",
+    "岳阳2": "https://www.zoomeye.org/searchResult?q=city%3A%22yueyang%22",
+    "娄底2": "https://www.zoomeye.org/searchResult?q=city%3A%22loudi%22",
+    "郴州2": "https://www.zoomeye.org/searchResult?q=city%3A%22chenzhou%22",
+    "湘潭2": "https://www.zoomeye.org/searchResult?q=city%3A%22xiangtan%22",
+    "常德2": "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
+    "益阳2": "https://www.zoomeye.org/searchResult?q=city%3A%22yiyang%22",
+    "永州2": "https://www.zoomeye.org/searchResult?q=city%3A%22yongzhou%22",
+    "怀化2": "https://www.zoomeye.org/searchResult?q=city%3A%22huaihua%22",
+    "湘西2": "https://www.zoomeye.org/searchResult?q=city%3A%22xiangxi%22",
+    "邵阳2": "https://www.zoomeye.org/searchResult?q=city%3A%22shaoyang%22",
+    "张家界2": "https://www.zoomeye.org/searchResult?q=city%3A%22zhangjiajie%22", 
+    ]
 
 def modify_urls(url):
     modified_urls = []
