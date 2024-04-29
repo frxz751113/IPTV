@@ -403,8 +403,8 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('地方频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        #if '龙祥' in channel_name or '酒店' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
-        if 'CCTV' not in channel_name and '卫视' not in channel_name:
+        if 'CHC' in channel_name or '湖南' in channel_name or '经典' in channel_name or '东森' in channel_name or '莲花' in channel_name or '天映' in channel_name or '星空' in channel_name or '星河' in channel_name or '私人' in channel_name or '凤凰' in channel_name:
+        #if 'CCTV' not in channel_name and '卫视' not in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
