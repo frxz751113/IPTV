@@ -41,9 +41,9 @@ urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
-    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
-    "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
-    "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
+    #"https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
+    #"https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
+    #"https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
 ]
 def modify_urls(url):
     modified_urls = []
