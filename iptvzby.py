@@ -226,7 +226,6 @@ for url in urls:
                             name = name.replace("内蒙卫视", "内蒙古卫视")
                             name = name.replace("福建东南卫视", "东南卫视")
                             name = name.replace("广东南方卫视", "南方卫视")
-                            name = name.replace("金鹰卡通卫视", "金鹰卡通")
                             name = name.replace("湖南金鹰卡通", "金鹰卡通")
                             name = name.replace("炫动卡通", "哈哈炫动")
                             name = name.replace("卡酷卡通", "卡酷少儿")
