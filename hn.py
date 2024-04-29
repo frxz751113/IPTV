@@ -3,23 +3,22 @@ import concurrent.futures
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 import requests
-import json
 import re
 import os
 import threading
 from queue import Queue
-
+from datetime import datetime
 
 # 网址：https://fofa.info/和https://www.zoomeye.org
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 
 regions = {
-    "长沙": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
-    "衡阳": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
-    "常德": "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
-    "常德2": "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
-    "长沙2": "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
-    "衡阳2": "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImNoYW5nc2hhIg%3D%3D",
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iaGVuZ3lhbmci",
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY2l0eT0iY2hhbmdkZSI%3D",
+    "https://www.zoomeye.org/searchResult?q=city%3A%22changde%22",
+    "https://www.zoomeye.org/searchResult?q=city:%22changsha%22",
+    "https://www.zoomeye.org/searchResult?q=city%3A%22hengyang%22",
 }
 def modify_urls(url):
     modified_urls = []
@@ -36,18 +35,20 @@ def modify_urls(url):
 
     return modified_urls
 
+
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.5)
+        response = requests.get(url, timeout=1)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
         pass
-
     return None
 
 
-def process_url(region, url):
+results = []
+
+for url in urls:
     # 创建一个Chrome WebDriver实例
     chrome_options = Options()
     chrome_options.add_argument('--headless')
@@ -67,9 +68,10 @@ def process_url(region, url):
     # 查找所有符合指定格式的网址
     pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
     urls_all = re.findall(pattern, page_content)
+    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
     urls = set(urls_all)  # 去重得到唯一的URL列表
     x_urls = []
-    for url in urls: # 对urls进行处理，ip第四位修改为1，并去重
+    for url in urls:  # 对urls进行处理，ip第四位修改为1，并去重
         url = url.strip()
         ip_start_index = url.find("//") + 2
         ip_end_index = url.find(":", ip_start_index)
@@ -83,11 +85,11 @@ def process_url(region, url):
         modified_ip = f"{ip_address}{ip_end}"
         x_url = f"{base_url}{modified_ip}{port}"
         x_urls.append(x_url)
-    urls = set(x_urls) # 去重得到唯一的URL列表
+    urls = set(x_urls)  # 去重得到唯一的URL列表
 
     valid_urls = []
     #   多线程获取可用url
-    with concurrent.futures.ThreadPoolExecutor(max_workers = 100) as executor:
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
         futures = []
         for url in urls:
             url = url.strip()
@@ -103,7 +105,6 @@ def process_url(region, url):
     for url in valid_urls:
         print(url)
     # 遍历网址列表，获取JSON文件并解析
-    results = []
     for url in valid_urls:
         try:
             # 发送GET请求获取JSON文件，设置超时时间为0.5秒
@@ -115,7 +116,7 @@ def process_url(region, url):
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.5)
+            response = requests.get(json_url, timeout=1)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -125,16 +126,16 @@ def process_url(region, url):
                         name = item.get('name')
                         urlx = item.get('url')
                         if ',' in urlx:
-                            urlx=f"aaaaaaaa"
-                            
+                            urlx = f"aaaaaaaa"
+
                         #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
                         if 'http' in urlx:
                             urld = f"{urlx}"
                         else:
                             urld = f"{url_x}{urlx}"
 
-                        if name and urlx:
-                            # 删除特定文字
+                        if name and urld:
+                            # 替换特定文字
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
@@ -142,6 +143,12 @@ def process_url(region, url):
                             name = name.replace("超高", "")
                             name = name.replace("频道", "")
                             name = name.replace("-", "")
+                            name = name.replace("002", "酒店MV")
+                            name = name.replace("305", "酒店影视1")
+                            name = name.replace("306", "酒店影视2")
+                            name = name.replace("307", "酒店影视3")
+                            name = name.replace("莲花台", "凤凰香港")
+                            name = name.replace("007广西影视一3", "广西影视")
                             name = name.replace(" ", "")
                             name = name.replace("PLUS", "+")
                             name = name.replace("＋", "+")
@@ -197,7 +204,6 @@ def process_url(region, url):
                             name = name.replace("内蒙卫视", "内蒙古卫视")
                             name = name.replace("福建东南卫视", "东南卫视")
                             name = name.replace("广东南方卫视", "南方卫视")
-                            name = name.replace("金鹰卡通卫视", "金鹰卡通")
                             name = name.replace("湖南金鹰卡通", "金鹰卡通")
                             name = name.replace("炫动卡通", "哈哈炫动")
                             name = name.replace("卡酷卡通", "卡酷少儿")
@@ -214,74 +220,29 @@ def process_url(region, url):
                             name = name.replace("卫视台", "卫视")
                             name = name.replace("湖南电视台", "湖南卫视")
                             name = name.replace("少儿科教", "少儿")
+                            name = name.replace("TV星河2）", "星河")
                             name = name.replace("影视剧", "影视")
+                            name = name.replace("电视剧", "影视")
+                            name = name.replace("卡", "")
                             results.append(f"{name},{urld}")
-                            
             except:
                 continue
         except:
             continue
 
-    return results
+channels = []
 
-# 将结果保存到文本文件
-def save_results(results, filename):
-    with open(filename, "w", encoding="utf-8") as file:
-        for result in results:
-            file.write(result + "\n")
-            print(result)
+for result in results:
+    line = result.strip()
+    if result:
+        channel_name, channel_url = result.split(',')
+        channels.append((channel_name, channel_url))
 
-directory = "地区源"
-# 文件目录不存在，则创建文件目录        
-if not os.path.exists(directory):
-    os.makedirs(directory)    
-    # 删除旧文件
-existing_files = os.listdir(directory)
-for file_name in existing_files:
-    file_path = os.path.join(directory, file_name)
-    if os.path.isfile(file_path):
-        os.remove(file_path)
-
-for region, url in regions.items():
-    results = process_url(region, url)
-    save_results(results, os.path.join(directory, f"{region}.txt"))
-
-# 合并结果成一个文件
-def merge_txt_files():
-    # 获取当前脚本所在目录
-    script_dir = os.path.dirname(os.path.abspath(__file__))
-    dir_path = os.path.join(script_dir, "地区源")
-
-    # 检查目录是否存在
-    if not os.path.exists(dir_path):
-        print(f"目录 '地区源' 不存在.")
-        return
-
-    # 获取目录下所有的txt文件
-    txt_files = [file for file in os.listdir(dir_path) if file.endswith(".txt")]
-
-    # 检查是否有txt文件
-    if not txt_files:
-        print(f"目录 '地区源' 中没有找到txt文件.")
-        return
-
-    # 合并文件内容
-    merged_content = ""
-    for txt_file in txt_files:
-        file_path = os.path.join(dir_path, txt_file)
-        with open(file_path, "r", encoding="utf-8") as file:
-            merged_content += file.read() + "\n"
-
-    # 将合并后的内容写入新文件
-    merged_file_path = os.path.join(script_dir, "JDY.txt")
-    with open(merged_file_path, "w", encoding="utf-8") as merged_file:
-        merged_file.write(merged_content)
-
-# 调用函数
-merge_txt_files()
-
-print("频道获取完成，频道列表文件保存为JDY.txt！")
-
+with open("iptv.txt", 'w', encoding='utf-8') as file:
+    for result in results:
+        file.write(result + "\n")
+        print(result)
+print("频道列表文件iptv.txt获取完成！")
 
 import eventlet
 
@@ -402,7 +363,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
     file.write('卫视频道,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
-        if '湖北卫视' in channel_name or '卫视' in channel_name or '湖南卫视' in channel_name or '石家庄娱乐' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name:
+        if '湖北卫视' in channel_name or '凤凰卫视' in channel_name or '湖南卫视' in channel_name or '石家庄娱乐' in channel_name or '江苏卫视' in channel_name or '山东卫视' in channel_name or '安徽卫视' in channel_name or '北京卫视' in channel_name or '广东卫视' in channel_name or '广东珠江' in channel_name or '贵州卫视' in channel_name:
             if channel_name in channel_counters:
                 if channel_counters[channel_name] >= result_counter:
                     continue
@@ -464,6 +425,6 @@ with open("湖南.txt", "w", encoding="utf-8") as output:
     #output.write(f"{now.strftime("%Y-%m-%d")},url\n")
     #output.write(f"{now.strftime("%H:%M:%S")},url\n")
 
-os.remove("JDY.txt")
+os.remove("iptv.txt")
 os.remove("hn.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内湖南.txt文件！")
