@@ -1,4 +1,4 @@
-天外频道,#genre#
+存档频道,#genre#
 酒店影视1,http://171.108.239.37:8181/tsfile/live/1054_1.m3u8?key=txiptv&playlive=1&authid=0
 酒店影视1,http://171.108.239.76:8181/tsfile/live/1054_1.m3u8?key=txiptv&playlive=1&authid=0
 酒店影视1,http://171.108.239.91:8181/tsfile/live/1054_1.m3u8?key=txiptv&playlive=1&authid=0
