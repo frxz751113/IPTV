@@ -8,7 +8,7 @@ on:
       - main
       
 jobs:
-  合并文件:
+  build:
     runs-on: ubuntu-latest
 
     steps:
