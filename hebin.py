@@ -22,4 +22,4 @@ with open("iptv.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 
-print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
+print("任务运行完毕，分类频道列表可查看文件夹内iptv.txt文件！")
