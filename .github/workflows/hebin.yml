@@ -1,4 +1,4 @@
-name: 合并
+name: 合并文件
 
 on:
   schedule:
