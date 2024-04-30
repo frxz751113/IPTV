@@ -43,7 +43,7 @@ urls = [
     #"https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iaHVuYW4i",  # 湖南)，搜索词"isShowLoginJs"
     #"https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSI%3D",  # Guangxi (广西)，搜索词"isShowLoginJs"
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族，搜索词"iptv/live/zh_cn.js"
-    "https://www.zoomeye.org/searchResult?q=%22isShowLoginJs%22%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西，搜索词"isShowLoginJs"
+    #"https://www.zoomeye.org/searchResult?q=%22isShowLoginJs%22%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西，搜索词"isShowLoginJs"
 ]
 def modify_urls(url):
     modified_urls = []
