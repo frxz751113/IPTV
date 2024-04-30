@@ -1,37 +1,37 @@
-name: 合并文件
+姓名：有
 
-on:
-  schedule:
+在：
+  日程：
     - cron: '55 */24 * * *'        #这里更改自动运行的时间，没这两行的话只能手动运行
-  workflow_dispatch:
+  工作流程_调度：
     分支:
-      - main
+      -主要的
       
-jobs:
-  build:
-    runs-on: ubuntu-latest
+工作：
+  建造：
+    运行：ubuntu-latest
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+    脚步：
+      -名称：结帐代码
+        使用：actions/checkout@v2
     
-      - name: Set up Python
-        uses: actions/setup-python@v2
-        with:
-          python-version: 3.x
+      -名称：设置Python
+        使用：actions/setup-python@v2
+        和：
+          python-版本：3.x
 
-      - name: Install dependencies
-        run: pip install selenium requests futures eventlet
+      -名称：安装依赖项
+        运行：pip install selenium 请求 futures eventlet
 
-      - name: Run iptv
+      -名称：运行 iptv
         run: python ${{ github.workspace }}/hebin.py      #这里更改要运行的py
       
       - name: 提交更改
-        run: |
+        运行：|
           git config --local user.email "mlyuanlang@126.com"
-          git config --local user.name "mlvjfchen"
-          git add .
-          git commit *.txt -m "Add generated file"
-          # git commit *.m3u -m "Add generated file"
+          git config --本地用户名“mlvjfchen”
+          git 添加 .
+          git commit *.txt -m "添加生成的文件"
+          # git commit *.m3u -m "添加生成的文件"
           #git pull --rebase
-          git push -f
+          git 推 -f
