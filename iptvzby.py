@@ -62,7 +62,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.6)          ###//////////////////
+        response = requests.get(url, timeout=1)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -140,7 +140,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.6)                        ####///////////////
+            response = requests.get(json_url, timeout=1)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -445,7 +445,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
       
 # 合并自定义频道文件内容
 file_contents = []
-file_paths = ["hn.txt", "GAT.txt"]  # 替换为实际的文件路径列表
+file_paths = ["hn.txt", "GAT.txt", "gatai.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
