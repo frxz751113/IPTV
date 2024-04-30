@@ -39,7 +39,8 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Ill1bGluIg%3D%3D",  #广西玉林
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iIA%3D%3D",  # 中国
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaHVuYW4i",  # 湖南，搜索词"iptv/live/zh_cn.js"
+    "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iaHVuYW4i",  # 湖南)，搜索词"isShowLoginJs"
     "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSI%3D",  # Guangxi (广西)，搜索词"isShowLoginJs"
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族，搜索词"iptv/live/zh_cn.js"
     #"https://www.zoomeye.org/searchResult?q=%22isShowLoginJs%22%20%2Bcountry%3A%22CN%22%20%2Bsubdivisions%3A%22guangxi%22",  #广西，搜索词"isShowLoginJs"
@@ -173,6 +174,7 @@ for url in urls:
                             name = name.replace("(", "")
                             name = name.replace(")", "")
                             name = name.replace("L", "")
+                            name = name.replace("测试001", "TVB星河")
                             name = name.replace("测试002", "凤凰中文")
                             name = name.replace("测试003", "凤凰中文")
                             name = name.replace("测试004", "私人影院")
