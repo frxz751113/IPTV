@@ -1,4 +1,4 @@
-name: IPTV
+name: 源采集
 
 on:
   schedule:
