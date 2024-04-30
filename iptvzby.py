@@ -39,7 +39,8 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Ill1bGluIg%3D%3D",  #广西玉林
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",
+    "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iaHVuYW4i",  # 湖南)，搜索词"isShowLoginJs"
+    "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSI%3D",  # Guangxi (广西)，搜索词"isShowLoginJs"
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族，搜索词"iptv/live/zh_cn.js"
 ]
 def modify_urls(url):
@@ -60,7 +61,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.5)          ###//////////////////
+        response = requests.get(url, timeout=0.8)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -138,7 +139,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.5)                        ####///////////////
+            response = requests.get(json_url, timeout=0.8)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -314,7 +315,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(0.5, False):  #################////////////////////////////////
+            with eventlet.Timeout(0.8, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
