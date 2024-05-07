@@ -280,11 +280,11 @@ for result in results:
         channel_name, channel_url = result.split(',')
         channels.append((channel_name, channel_url))
 
-with open("itv.txt", 'w', encoding='utf-8') as file:
+with open("iptv.txt", 'w', encoding='utf-8') as file:
     for result in results:
         file.write(result + "\n")
         print(result)
-print("频道列表文件itv.txt获取完成！")
+print("频道列表文件iptv.txt获取完成！")
 
 import eventlet
 
@@ -458,7 +458,7 @@ for file_path in file_paths:
         file_contents.append(content)
 
 # 写入合并后的文件
-with open("iptv.txt", "w", encoding="utf-8") as output:
+with open("iptv_list.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 # 写入更新日期时间
@@ -467,10 +467,10 @@ with open("iptv.txt", "w", encoding="utf-8") as output:
     #output.write(f"{now.strftime("%Y-%m-%d")},url\n")
     #output.write(f"{now.strftime("%H:%M:%S")},url\n")
 
-os.remove("itv.txt")
+os.remove("iptv.txt")
 os.remove("GAT.txt")
 os.remove("hn.txt")
 #os.remove("HK.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
-print("任务运行完毕，分类频道列表可查看文件夹内iptv.txt文件！")
+print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
