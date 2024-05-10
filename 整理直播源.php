@@ -9,7 +9,6 @@ body {
 }
 #output-container {
   position: relative;
-}
 
 #copy-button {
   position: absolute;
