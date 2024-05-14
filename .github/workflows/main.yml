@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: pip install replace
       - name: Install dependencies
-        run: pip install input
+        run: pip install fileinput
      
       - name: Run iptv
         run: python ${{ github.workspace }}/iptvzby.py      #这里更改要运行的py
