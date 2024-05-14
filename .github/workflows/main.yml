@@ -22,7 +22,11 @@ jobs:
 
       - name: Install dependencies
         run: pip install selenium requests futures eventlet
-
+      - name: Install dependencies
+        run: pip install replace
+      - name: Install dependencies
+        run: pip install input
+     
       - name: Run iptv
         run: python ${{ github.workspace }}/iptvzby.py      #这里更改要运行的py
 
