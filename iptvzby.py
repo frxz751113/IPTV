@@ -9,7 +9,7 @@ import threading
 from queue import Queue
 from datetime import datetime
 import replace
-from input import fileinput
+import input-0.0.0
 
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
