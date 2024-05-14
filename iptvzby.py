@@ -19,7 +19,7 @@ open('DIYP-v4.txt','wb').write(r.content)         #打开源文件名
 
 for line in fileinput.input("DIYP-v4.txt", inplace=True):
     line = line.replace("高清", "")
-      print(line, end="")
+    print(line, end="")
 
 
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
