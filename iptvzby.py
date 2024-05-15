@@ -30,18 +30,10 @@ with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', enc
     for line in file:
         if re.search(pattern, line):  # 如果行中有任意关键字
           TW.write(line)  # 将该行写入输出文件
-keywords = ['天映', '凤凰', '东森', '八大', '三立', '电影台', '美亚', '龙祥']  # 需要提取的关键字列表
-pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
-#pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
-with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('HK.txt', 'w', encoding='utf-8') as HK:
-    HK.write('\nGAT频道,#genre#\n')
-    for line in file:
-        if re.search(pattern, line):  # 如果行中有任意关键字
-          HK.write(line)  # 将该行写入输出文件
 
 # 读取要合并的香港频道和台湾频道文件
 file_contents = []
-file_paths = ["TW.txt", "HK.txt"]  # 替换为实际的文件路径列表
+file_paths = ["TW.txt"]  # 替换为实际的文件路径列表
 for file_path in file_paths:
     with open(file_path, 'r', encoding="utf-8") as file:
         content = file.read()
@@ -483,7 +475,7 @@ with open("iptv_list.txt", "w", encoding="utf-8") as output:
 os.remove("iptv.txt")
 os.remove("GAT.txt")
 os.remove("hn.txt")
-os.remove("HK.txt")
+#os.remove("HK.txt")
 os.remove("DIYP-v4.txt")
 os.remove("TW.txt")
 print("任务运行完毕，分类频道列表可查看文件夹内iptv_list.txt文件！")
