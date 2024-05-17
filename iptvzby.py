@@ -14,12 +14,12 @@ import fileinput
 #  获取远程港澳台直播源文件
 url = "https://mirror.ghproxy.com/https://raw.githubusercontent.com/Fairy8o/IPTV/main/DIYP-v4.txt"          #源采集地址
 r = requests.get(url)
-open('DIYP-v4.txt','wb').write(r.content)         #打开源文件名
+open('DIYP-v4.txt','wb').write(r.content)         #打开源文件并临时写入
 
 
-for line in fileinput.input("DIYP-v4.txt", inplace=True):
-    line = line.replace("高清", "")
-    print(line, end="")
+for line in fileinput.input("DIYP-v4.txt", inplace=True):   #打开临时文件原地替换关键字
+    line = line.replace("输入原字符", "替换后的字符")                         #编辑替换字
+    print(line, end="")                                     #加入此行去掉多余的转行符
 
 
 keywords = ['重温经典', '热剧 8M1080', '超级电影 8M1080', '超级电视剧 8M1080', '喜剧 8M1080', '惊悚悬疑 8M1080', '明星大片 8M1080', '潮妈辣婆 8M1080', '精品大剧 8M1080', '动作电影 8M1080', '古装剧场 8M1080', '中国功夫 8M1080', '神乐剧场']  # 需要提取的关键字列表
