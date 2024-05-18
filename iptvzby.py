@@ -45,6 +45,7 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源测绘空间地址
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
+# 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iaGVpbG9uZ2ppYW5nIg%3D%3D",#黑龙江
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iZ3Vhbmdkb25nIg%3D%3D",#广东
