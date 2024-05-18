@@ -22,7 +22,7 @@ for line in fileinput.input("DIYP-v4.txt", inplace=True):   #打开临时文件�
     print(line, end="")                                     #加入此行去掉多余的转行符
 
 
-keywords = ['重温经典', '热剧,', '超级电影,', '超级电视剧,', '剧场,', '惊悚悬疑,', '明星大片,', '潮妈辣婆,', '精品大剧,', '动作电影,', '古装剧场,', '中国功夫,']  # 需要提取的关键字列表 8M1080
+keywords = ['重温经典', ' 8M1080,', '超级电影,', '超级电视剧,', '剧场,', '惊悚悬疑,', '明星大片,', '潮妈辣婆,', '精品大剧,', '动作电影,', '古装剧场,', '中国功夫,']  # 需要提取的关键字列表 8M1080
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
 with open('DIYP-v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
