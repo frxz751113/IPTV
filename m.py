@@ -15,7 +15,7 @@ import eventlet
 with open("iptv_list.txt", 'r', encoding='utf-8') as file:
 
 
-eventlet.monkey_patch()
+ eventlet.monkey_patch()
 
 # 线程安全的队列，用于存储下载任务
 task_queue = Queue()
