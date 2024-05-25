@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 import requests
 import re
 import os
+import fileinput
 import threading
 from queue import Queue
 
