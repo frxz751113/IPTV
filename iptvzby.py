@@ -374,7 +374,7 @@ def worker():
                 
 
                 # 删除下载的文件
-                os.remove(ts_lists_0)
+        os.remove(ts_lists_0)
                 result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
                 results.append(result)
                 numberx = (len(results) + len(error_channels)) / len(channels) * 100
