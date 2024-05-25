@@ -344,7 +344,7 @@ def worker():
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
-                response_time = (end_time - start_time) * 0.1
+                response_time = (end_time - start_time) * 2
 
             if content:
                 with open(ts_lists_0, 'ab') as f:
