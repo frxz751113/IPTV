@@ -357,21 +357,6 @@ def worker():
                 normalized_speed = min(max(download_speed / 1024, 0.001), 100)  # 将速率从kB/s转换为MB/s并限制在1~100之间
                 # print(f"标准化后的速率：{normalized_speed:.3f} MB/s")
 
-######################################################################################
-            if not cap.isOpened():
-                    print(f"{current_time} {video_url} 无效")
-            else:
-                    # 读取视频的宽度和高度
-                width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
-                # 检查分辨率是否大于0
-                if width > 1080 and height > 720:
-                    valid_ips.append(url)
-
-##############################################################
-                
-
                 # 删除下载的文件
                 os.remove(ts_lists_0)
                 result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
