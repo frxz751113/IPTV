@@ -366,7 +366,7 @@ def worker():
                 height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
                 print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
                 # 检查分辨率是否大于0
-                if width > 0 and height > 0:
+                if width > 1080 and height > 720:
                     valid_ips.append(url)
 
 ##############################################################
