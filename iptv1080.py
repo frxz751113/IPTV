@@ -82,7 +82,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=0.5)
+        response = requests.get(url, timeout=1)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -160,7 +160,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=0.5)
+            response = requests.get(json_url, timeout=1)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -170,15 +170,16 @@ for url in urls:
                         name = item.get('name')
                         urlx = item.get('url')
                         if ',' in urlx:
-                            urlx=f"aaaaaaaa"
+                            urlx = f"aaaaaaaa"
+
                         #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
                         if 'http' in urlx:
                             urld = f"{urlx}"
                         else:
                             urld = f"{url_x}{urlx}"
 
-                        if name and urlx:
-                            # 删除特定文字
+                        if name and urld:
+                            # 替换特定文字
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
@@ -287,7 +288,6 @@ for url in urls:
         except:
             continue
 
-
 channels = []
 
 for result in results:
@@ -295,6 +295,12 @@ for result in results:
     if result:
         channel_name, channel_url = result.split(',')
         channels.append((channel_name, channel_url))
+
+with open("iptv.txt", 'w', encoding='utf-8') as file:
+    for result in results:
+        file.write(result + "\n")
+        print(result)
+print("频道列表文件iptv.txt获取完成！")
 
 import eventlet
 eventlet.monkey_patch()
