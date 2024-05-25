@@ -84,7 +84,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=4)          ###//////////////////
+        response = requests.get(url, timeout=1)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -340,7 +340,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(5, False):  #################////////////////////////////////
+            with eventlet.Timeout(8, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
