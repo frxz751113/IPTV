@@ -82,7 +82,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=1)          ###//////////////////
+        response = requests.get(url, timeout=3)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -160,7 +160,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=1)                        ####///////////////
+            response = requests.get(json_url, timeout=3)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -320,19 +320,19 @@ def worker():
         # 从队列中获取一个任务
         channel_name, channel_url = task_queue.get()
         try:
-            response = requests.get(channel_url, timeout=1)
+            response = requests.get(channel_url, timeout=5)
             if response.status_code == 200:
                 channel_url_t = channel_url.rstrip(channel_url.split('/')[-1])  # m3u8链接前缀
-                lines = requests.get(channel_url,timeout=1).text.strip().split('\n')  # 获取m3u8文件内容
+                lines = requests.get(channel_url,timeout=5).text.strip().split('\n')  # 获取m3u8文件内容
                 ts_lists = [line.split('/')[-1] for line in lines if line.startswith('#') == False]  # 获取m3u8文件下视频流后缀
 
                 file_size = 0
                 start_time = time.time()
                 # 多获取的视频数据进行12秒钟限制
-                with eventlet.Timeout(12, False):
+                with eventlet.Timeout(5, False):
                     for i in range(len(ts_lists)):
                         ts_url = channel_url_t + ts_lists[i]  # 拼接单个视频片段下载链接
-                        response = requests.get(ts_url, stream=True, timeout=1)
+                        response = requests.get(ts_url, stream=True, timeout=5)
                         for chunk in response.iter_content(chunk_size=1024):
                             if chunk:
                                 file_size += len(chunk)
