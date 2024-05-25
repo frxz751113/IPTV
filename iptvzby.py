@@ -84,7 +84,7 @@ def modify_urls(url):
 
 def is_url_accessible(url):
     try:
-        response = requests.get(url, timeout=10)          ###//////////////////
+        response = requests.get(url, timeout=2)          ###//////////////////
         if response.status_code == 200:
             return url
     except requests.exceptions.RequestException:
@@ -162,7 +162,7 @@ for url in urls:
             url_x = f"{base_url}{ip_address}"
 
             json_url = f"{url}"
-            response = requests.get(json_url, timeout=10)                        ####///////////////
+            response = requests.get(json_url, timeout=2)                        ####///////////////
             json_data = response.json()
 
             try:
@@ -340,11 +340,11 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(10, False):  #################////////////////////////////////
+            with eventlet.Timeout(2, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
-                response_time = (end_time - start_time) * 1
+                response_time = (end_time - start_time) * 0.1
 
             if content:
                 with open(ts_lists_0, 'ab') as f:
