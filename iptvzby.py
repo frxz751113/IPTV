@@ -341,11 +341,11 @@ def worker():
             
 
             # 获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(0.8, False):  #################////////////////////////////////
+            with eventlet.Timeout(1, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
-                response_time = (end_time - start_time) * 0.1
+                response_time = (end_time - start_time) * 1.5
 
             if content:
                 with open(ts_lists_0, 'ab') as f:
