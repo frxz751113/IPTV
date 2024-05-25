@@ -362,19 +362,18 @@ def worker():
                     print(f"{current_time} {video_url} 无效")
             else:
                     # 读取视频的宽度和高度
-                    width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-                    height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-                    print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
-                    # 检查分辨率是否大于0
-                    if width > 0 and height > 0:
-                        valid_ips.append(url)
-                    # 关闭视频流
-                    cap.release()
+                width = int(cap.get(cv2.CAP_PROP_FRAME_WIDTH))
+                height = int(cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
+                print(f"{current_time} {video_url} 的分辨率为 {width}x{height}")
+                # 检查分辨率是否大于0
+                if width > 0 and height > 0:
+                    valid_ips.append(url)
+
 ##############################################################
                 
 
                 # 删除下载的文件
-        os.remove(ts_lists_0)
+                os.remove(ts_lists_0)
                 result = channel_name, channel_url, f"{normalized_speed:.3f} MB/s"
                 results.append(result)
                 numberx = (len(results) + len(error_channels)) / len(channels) * 100
