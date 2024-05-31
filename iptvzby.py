@@ -111,7 +111,7 @@ for url in urls:
     # 获取网页内容
     page_content = driver.page_source
 
-                    name = name.replace("中央", "CCTV")
+                            name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
                             name = name.replace("标清", "")
