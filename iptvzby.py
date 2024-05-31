@@ -111,6 +111,78 @@ for url in urls:
     # 获取网页内容
     page_content = driver.page_source
 
+    # 关闭WebDriver
+    driver.quit()
+
+    # 查找所有符合指定格式的网址
+    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
+    urls_all = re.findall(pattern, page_content)
+    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
+    urls = set(urls_all)  # 去重得到唯一的URL列表
+    x_urls = []
+    for url in urls:  # 对urls进行处理，ip第四位修改为1，并去重
+        url = url.strip()
+        ip_start_index = url.find("//") + 2
+        ip_end_index = url.find(":", ip_start_index)
+        ip_dot_start = url.find(".") + 1
+        ip_dot_second = url.find(".", ip_dot_start) + 1
+        ip_dot_three = url.find(".", ip_dot_second) + 1
+        base_url = url[:ip_start_index]  # http:// or https://
+        ip_address = url[ip_start_index:ip_dot_three]
+        port = url[ip_end_index:]
+        ip_end = "1"
+        modified_ip = f"{ip_address}{ip_end}"
+        x_url = f"{base_url}{modified_ip}{port}"
+        x_urls.append(x_url)
+    urls = set(x_urls)  # 去重得到唯一的URL列表
+
+    valid_urls = []
+    #   多线程获取可用url
+    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
+        futures = []
+        for url in urls:
+            url = url.strip()
+            modified_urls = modify_urls(url)
+            for modified_url in modified_urls:
+                futures.append(executor.submit(is_url_accessible, modified_url))
+
+        for future in concurrent.futures.as_completed(futures):
+            result = future.result()
+            if result:
+                valid_urls.append(result)
+
+    for url in valid_urls:
+        print(url)
+    # 遍历网址列表，获取JSON文件并解析
+    for url in valid_urls:
+        try:
+            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
+            ip_start_index = url.find("//") + 2
+            ip_dot_start = url.find(".") + 1
+            ip_index_second = url.find("/", ip_dot_start)
+            base_url = url[:ip_start_index]  # http:// or https://
+            ip_address = url[ip_start_index:ip_index_second]
+            url_x = f"{base_url}{ip_address}"
+
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=0.5)
+            json_data = response.json()
+
+            try:
+                # 解析JSON文件，获取name和url字段
+                for item in json_data['data']:
+                    if isinstance(item, dict):
+                        name = item.get('name')
+                        urlx = item.get('url')
+                        if ',' in urlx:
+                            urlx=f"aaaaaaaa"
+                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
+                        if 'http' in urlx:
+                            urld = f"{urlx}"
+                        else:
+                            urld = f"{url_x}{urlx}"
+
+                        if name and urlx:
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
                             name = name.replace("HD", "")
