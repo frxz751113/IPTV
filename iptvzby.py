@@ -167,9 +167,6 @@ for url in urls:
                         if ',' in urlx:
                             urlx = f"aaaaaaaa"
 
-                        
-                        if 'udp' in line['url'] or 'rtp' in line['url']:
-                            program_judgment('{},{}'.format(line['name'],'http://{}/tsfile/live/{}_{}.m3u8'.format(info,line['chid'],line['srcid'])))
                         if 'http' in urlx:
                         #if 'http' in urlx or 'rtsp' in urlx:
                             urld = f"{urlx}"
