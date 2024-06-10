@@ -39,16 +39,16 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 
 # 扫源测绘空间地址
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
+#            "iptv/live/zh_cn.js" && country="CN" && region="Guangxi Zhuangzu" && port="8181"
 # 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
+             "ZHGXTV" && country="CN" && region="Guangxi Zhuangzu" && port="808"
 urls = [
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODUi",#85
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGZpZD0iN3Y0aFZ5ZDh4NlJ4T0RKTzJRNXU1UT09Ig%3D%3D",#全国所有酒店系统
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSIgJiYgcG9ydD0iODA4Ig%3D%3D",#ZHGX广西808
+    "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSIgJiYgcG9ydD0iODA4OCI%3D",#ZHGX广西8088
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSI%3D",#9901
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSI%3D",#8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSIgJiYgcG9ydD0iODE4MSI%3D",#广西8181
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSImJiBvcmc9IkNoaW5hbmV0Ig%3D%3D",#8181移动
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0iY2hhbmdzaGEi",  # changsha 长沙               #国内智慧光讯org="Chinanet"
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0ibG91ZGki",  # loudi 娄底                      #国内智慧光讯
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",#河南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",  # 河北
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Inl1bGluIg%3D%3D",  # 玉林||
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImJlaWhhaSI%3D",#北海
     #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  # 贵港
@@ -336,7 +336,7 @@ def worker():
             
 
             # 获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(16, False):  #################////////////////////////////////
+            with eventlet.Timeout(64, False):  #################////////////////////////////////
                 start_time = time.time()
                 content = requests.get(ts_url).content
                 end_time = time.time()
@@ -371,7 +371,7 @@ def worker():
 
 
 # 创建多个工作线程
-num_threads = 16
+num_threads = 32
 for _ in range(num_threads):
     t = threading.Thread(target=worker, daemon=True)
     # t = threading.Thread(target=worker, args=(event,len(channels)))  # 将工作线程设置为守护线程
