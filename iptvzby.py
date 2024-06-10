@@ -41,7 +41,7 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 搜素关键词："iptv/live/zh_cn.js" && country="CN" && region="Hunan" && city="changsha"
 #            "iptv/live/zh_cn.js" && country="CN" && region="Guangxi Zhuangzu" && port="8181"
 # 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
-             "ZHGXTV" && country="CN" && region="Guangxi Zhuangzu" && port="808"
+#            "ZHGXTV" && country="CN" && region="Guangxi Zhuangzu" && port="808"
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGZpZD0iN3Y0aFZ5ZDh4NlJ4T0RKTzJRNXU1UT09Ig%3D%3D",#全国所有酒店系统
     "https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSIgJiYgcG9ydD0iODA4Ig%3D%3D",#ZHGX广西808
