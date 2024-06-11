@@ -45,25 +45,6 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 urls = [
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSI%3D",#9901
     "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSI%3D",#8181
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSImJiBvcmc9IkNoaW5hbmV0Ig%3D%3D",#8181移动
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iTmFubmluZyI%3D",  #南宁8181
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4MiIgJiYgY2l0eT0iTmFubmluZyI%3D",  #南宁8082
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4OCIgJiYgY2l0eT0iTmFubmluZyI%3D",  #南宁8088
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSIgJiYgY2l0eT0iRGFxaW5nIg%3D%3D",  #大庆9901
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSIgJiYgY2l0eT0iTXVkYW5qaWFuZyI%3D",  #牡丹江9901
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSIgJiYgY2l0eT0iUWl0YWloZSI%3D",  #qitahe9901
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY2l0eT0ibG91ZGki",  # loudi 娄底                      #国内智慧光讯
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5rKz5Y2XIg%3D%3D",#河南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iSGViZWki",  # 河北
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Inl1bGluIg%3D%3D",  # 玉林||
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9ImJlaWhhaSI%3D",#北海
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Imd1aWdhbmci",  # 贵港
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Im5hbm5pbmci",#南宁
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY291bnRyeT0iQ04iICYmIGNpdHk9Ik5hbm5pbmci",         #南宁智慧光讯
-    #"https://fofa.info/result?qbase64=IlpIR1hUViIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0iR3Vhbmd4aSBaaHVhbmd6dSI%3D",   #广西 壮族    智慧光讯
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgY291bnRyeT0iQ04iICYmIHJlZ2lvbj0i5bm%2F6KW%2FIg%3D%3D",    #广西 壮族iptv
-    "https://fofa.info/result?qbase64=ImlzU2hvd0xvZ2luSnMiICYmIHJlZ2lvbj0iSGVpbG9uZ2ppYW5nIg%3D%3D",  # Heilongjiang (黑龙江)
 ]
 def modify_urls(url):
     modified_urls = []
@@ -300,7 +281,19 @@ with open("iptv.txt", 'w', encoding='utf-8') as file:
         file.write(result + "\n")
         print(result)
 print("频道列表文件iptv.txt获取完成！")
+with open("iptv.txt", 'r', encoding="utf-8") as f:
+    lines = f.readlines()
+    before = len(lines)
+    lines = list(set(lines))
+    after = len(lines)
+lines.sort()
 
+with open('iptv.txt', 'w', encoding='UTF-8') as f:
+    for line in lines:          
+      f.write(line)
+print('处理完成：')
+print(f'处理前文件行数：{before}')
+print(f'处理后文件行数：{after}')
 
 for line in fileinput.input("iptv.txt", inplace=True):  #打开文件，并对其进行关键词原地替换                     ###########
     line = line.replace("CHC电影", "影迷电影")                                                                         ###########                                                      ###########
