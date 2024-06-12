@@ -20,9 +20,9 @@ keywords = [',', 'http']  # 需要提取的关键字列表 8M1080
 pattern = '|'.join(keywords)  # 创建正则表达式模式，匹配任意一个关键字
 #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制
 with open('ott移动v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w', encoding='utf-8') as TW:
-    TW.write('\n央视频道/固定源,#genre#\n')
+    TW.write('\n央视/随时失效,#genre#\n')
     for line in file:
-      if '固定' not in line:  设定含固定行不提取
+      if '央视/随时失效,#genre#' not in line:  设定含固定行不提取
         if re.search(pattern, line):  # 如果行中有任意关键字
           TW.write(line)  # 将该行写入输出文件
 
