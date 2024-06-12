@@ -23,7 +23,7 @@ with open('ott移动v4.txt', 'r', encoding='utf-8') as file, open('TW.txt', 'w',
     TW.write('\n央视/随时失效,#genre#\n')
     for line in file:
       if '央视/随时失效,#genre#' not in line:  #设定含固定行不提取
-      if re.search(pattern, line):  # 如果行中有任意关键字
+       if re.search(pattern, line):  # 如果行中有任意关键字
           TW.write(line)  # 将该行写入输出文件
 
 # 读取要合并的香港频道和台湾频道文件
