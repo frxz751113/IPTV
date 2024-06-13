@@ -35,9 +35,8 @@ with open('iptv_list.txt', 'r', encoding='utf-8') as f:  #打开文件，并对�
  with open('iptv_list.txt', 'r', encoding='utf-8') as file, open('c.txt', 'w', encoding='utf-8') as c:           ###########
     c.write('\n省市,#genre#\n')                                                                        ###########
     for line in file:
-      if 'CCTV' not in channel_name and '卫视' not in channel_name:
-        if re.search(pattern, line):  # 如果行中有任意关键字                                                ###########
-          c.write(line)  # 将该行写入输出文件                                                               ###########
+        if re.search(pattern, line):  # 如果行中有任意关键字 
+          c.write(line)  # 将该行写入输出文件
                                                   
 channel_counters = {}
 with open('iptv_list.txt', 'r', encoding='utf-8') as f:  #打开文件，并对其进行关键词提取                                               ###########
@@ -64,5 +63,20 @@ for file_path in file_paths:
         content = file.read()
         file_contents.append(content)
 # 生成合并后的文件
-with open("自用.txt", "w", encoding="utf-8") as output:
-    output.write('\n'.join(file_contents))
+#with open("自用.txt", "w", encoding="utf-8") as output:
+    #output.write('\n'.join(file_contents))
+
+
+#with open("自用.txt", 'r', encoding="utf-8") as f:
+    #lines = f.readlines()
+    before = len(lines)
+    lines = list(set(lines))
+    after = len(lines)
+
+
+with open('自用.txt', 'w', encoding='UTF-8') as f:
+    for line in lines:          
+      f.write(line)
+print('处理完成：')
+print(f'处理前文件行数：{before}')
+print(f'处理后文件行数：{after}')
