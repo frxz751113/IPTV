@@ -86,20 +86,7 @@ with open('自用.txt', 'w', encoding="utf-8") as file:
  file.writelines(unique_lines)
 ##############################
 
-################简体转繁体
-# 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
-#converter = OpenCC('t2s.json')#繁转简
-converter = OpenCC('s2t.json')#简转繁
-# 打开txt文件
-with open('自用.txt', 'r', encoding='utf-8') as file:
-    traditional_text = file.read()
 
-# 进行繁体字转简体字的转换
-simplified_text = converter.convert(traditional_text)
-
-# 将转换后的简体字写入txt文件
-with open('自用.txt', 'w', encoding='utf-8') as file:
-    file.write(simplified_text)
 
 os.remove("a.txt")
 os.remove("b.txt")
