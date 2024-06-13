@@ -7,7 +7,8 @@ with open('iptv_list.txt', 'r', encoding='utf-8') as f:  #打开文件，并对�
  #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制                                                     ###########
  with open('iptv_list.txt', 'r', encoding='utf-8') as file, open('a.txt', 'w', encoding='utf-8') as a:           ###########
     a.write('\n央视,#genre#\n')                                                                        ###########
-    for line in file:                                                                                      ###########
+    for line in file:
+     if 'wh7f' not in line：
         if re.search(pattern, line):  # 如果行中有任意关键字                                                ###########
           a.write(line)  # 将该行写入输出文件                                                               ###########
                                                                                                            ###########
@@ -19,11 +20,12 @@ with open('iptv_list.txt', 'r', encoding='utf-8') as f:  #打开文件，并对�
  #pattern = r"^(.*?),(?!#genre#)(.*?)$" #以分类直接复制                                                     ###########
  with open('iptv_list.txt', 'r', encoding='utf-8') as file, open('b.txt', 'w', encoding='utf-8') as b:           ###########
     b.write('\n卫视,#genre#\n')                                                                        ###########
-    for line in file:                                                                                      ###########
+    for line in file:
+      if 'wh7f' not in line
         if re.search(pattern, line):  # 如果行中有任意关键字                                                ###########
           b.write(line)  # 将该行写入输出文件                                                               ###########
                                                   
-
+    
 
 
 ##############################################################################################################################################################################################################################################
