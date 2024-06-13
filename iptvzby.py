@@ -193,6 +193,7 @@ for url in urls:
                             name = name.replace("汉3", "汉")
                             name = name.replace("汉4", "汉")
                             name = name.replace("汉5", "汉")
+                            name = name.replace("汉6", "汉")
                             name = name.replace("007广西影视一3", "广西影视")
                             name = name.replace("008广西综艺一4", "广西综艺")                            
                             name = name.replace("002", "AA酒店MV")
