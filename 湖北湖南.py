@@ -62,12 +62,12 @@ for file_path in file_paths:
         content = file.read()
         file_contents.append(content)
 # 生成合并后的文件
-#with open("自用.txt", "w", encoding="utf-8") as output:
-    #output.write('\n'.join(file_contents))
+with open("自用.txt", "w", encoding="utf-8") as output:
+    output.write('\n'.join(file_contents))
 
 
-#with open("自用.txt", 'r', encoding="utf-8") as f:
-    #lines = f.readlines()
+with open("自用.txt", 'r', encoding="utf-8") as f:
+    lines = f.readlines()
     before = len(lines)
     lines = list(set(lines))
     after = len(lines)
