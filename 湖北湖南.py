@@ -46,7 +46,6 @@ with open('iptv_list.txt', 'r', encoding='utf-8') as f:  #打开文件，并对�
  with open('iptv_list.txt', 'r', encoding='utf-8') as file, open('d.txt', 'w', encoding='utf-8') as d:           ###########
     d.write('\n港澳,#genre#\n')                                                                        ###########
     for line in file:
-      if 'CCTV' not in channel_name and '卫视' not in channel_name:
         if re.search(pattern, line):  # 如果行中有任意关键字                                                ###########
           d.write(line)  # 将该行写入输出文件                                                               ###########
                                                   
