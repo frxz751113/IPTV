@@ -1823,6 +1823,7 @@ CCTV电影国际,http://110.72.63.95:8181/tsfile/live/1088_1.m3u8?key=txiptv&pla
 黑龙江卫视,http://110.7.128.167:8096/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
 黑龙江卫视,http://116.117.104.143:8096/tsfile/live/0143_1.m3u8?key=txiptv&playlive=1&authid=0
 黑龙江卫视,http://36.40.237.139:9999/tsfile/live/0131_3.m3u8?key=txiptv&playlive=0&authid=0
+省市频道,#genre#
 武汉1新闻综合,http://58.48.37.158:1111/tsfile/live/1004_1.m3u8?key=txiptv&playlive=1&authid=0
 武汉2影视,http://58.48.37.158:1111/tsfile/live/0130_1.m3u8?key=txiptv&playlive=1&authid=0
 武汉3科技生活,http://58.48.37.158:1111/tsfile/live/1005_1.m3u8?key=txiptv&playlive=1&authid=0
