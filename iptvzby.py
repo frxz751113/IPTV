@@ -495,7 +495,7 @@ with open("iptv_list.txt", "w", encoding="utf-8") as output:
 for line in fileinput.input("iptv_list.txt", inplace=True):  #打开文件，并对其进行关键词原地替换 
     line = line.replace("AA", "")
     print(line, end="")  #设置end=""，避免输出多余的换行符          
-#########原始顺序去重
+#########原始顺序去重，以避免同一个频道出现在不同的类中
 with open('iptv_list.txt', 'r', encoding="utf-8") as file:
  lines = file.readlines()
 # 使用列表来存储唯一的行的顺序 
