@@ -66,16 +66,44 @@ with open("自用.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 
 
-with open("自用.txt", 'r', encoding="utf-8") as f:
-    lines = f.readlines()
-    before = len(lines)
-    lines = list(set(lines))
-    after = len(lines)
+##############################原始顺序去重
+# 打开文档并读取所有行 
+with open('自用.txt', 'r', encoding="utf-8") as file:
+ lines = file.readlines()
+ 
+# 使用列表来存储唯一的行的顺序 
+ unique_lines = [] 
+ seen_lines = set() 
 
+# 遍历每一行，如果是新的就加入unique_lines 
+for line in lines:
+ if line not in seen_lines:
+  unique_lines.append(line)
+  seen_lines.add(line)
 
-with open('自用.txt', 'w', encoding='UTF-8') as f:
-    for line in lines:          
-      f.write(line)
-print('处理完成：')
-print(f'处理前文件行数：{before}')
-print(f'处理后文件行数：{after}')
+# 将唯一的行写入新的文档 
+with open('自用.txt', 'w', encoding="utf-8") as file:
+ file.writelines(unique_lines)
+##############################
+
+################简体转繁体
+# 创建一个OpenCC对象，指定转换的规则为繁体字转简体字
+#converter = OpenCC('t2s.json')#繁转简
+converter = OpenCC('s2t.json')#简转繁
+# 打开txt文件
+with open('自用.txt', 'r', encoding='utf-8') as file:
+    traditional_text = file.read()
+
+# 进行繁体字转简体字的转换
+simplified_text = converter.convert(traditional_text)
+
+# 将转换后的简体字写入txt文件
+with open('自用.txt', 'w', encoding='utf-8') as file:
+    file.write(simplified_text)
+
+os.remove("a.txt")
+os.remove("b.txt")
+os.remove("c.txt")
+os.remove("d.txt")
+
+print("任务运行完毕，分类频道列表可查看文件夹内.txt文件！")
