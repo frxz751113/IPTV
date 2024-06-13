@@ -442,7 +442,7 @@ with open("hn.txt", 'w', encoding='utf-8') as file:
 
 
     channel_counters = {}
-    file.write('卫视频道/自动更新,#genre#\n')
+    file.write('省市频道/自动更新,#genre#\n')
     for result in results:
         channel_name, channel_url, speed = result
         if '湖北' in channel_name or '武汉' in channel_name or '湖南' in channel_name or '南宁' in channel_name or '河北' in channel_name or '广东' in channel_name or '广西' in channel_name or '保定' in channel_name or '石家庄' in channel_name:
