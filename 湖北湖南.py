@@ -485,7 +485,7 @@ for file_path in file_paths:
 
 
 # 写入合并后的文件
-with open("iptv_list.txt", "w", encoding="utf-8") as output:
+with open("湖北湖南.txt", "w", encoding="utf-8") as output:
     output.write('\n'.join(file_contents))
 for line in fileinput.input("iptv_list.txt", inplace=True):  #打开文件，并对其进行关键词原地替换 
     line = line.replace("AA", "")
