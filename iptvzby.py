@@ -174,9 +174,7 @@ for url in urls:
                         else:
                             urld = f"{url_x}{urlx}"
 
-###########################
-def zhgx_analysis(info):
-    #智慧GX解析
+####################
     url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
     try:
         rsp = requests.get(url,headers=headers,timeout=3)
