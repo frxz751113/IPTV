@@ -44,20 +44,18 @@ with open("GAT.txt", "w", encoding="utf-8") as output:
 # 搜素关键词："ZHGXTV" && country="CN" && region="Hunan" && city="changsha"
 #            "ZHGXTV" && country="CN" && region="Guangxi Zhuangzu" && port="808"
 urls = [
-    "https://fofa.info/result?qbase64=IlpIR1hUViI%3D",#智慧光迅
-    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyI%3D",#智慧桌面
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4Ig%3D%3D",#808
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA5NiI%3D",#8096
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTk5OSI%3D",#9999
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSI%3D",#9901
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSI%3D",#8181
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgb3JnPSJDaGluYW5ldCI%3D",#电信随机
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iTmFubmluZyI%3D",  #南宁8181
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJodWJlaSIgJiYgcG9ydD0iOTkwMSI%3D",  #湖北9901
-    #"https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgIHJlZ2lvbj0iSHVuYW4iICYmIHBvcnQ9Ijk5MDEi",  #湖南9901
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA4Ig%3D%3D",#808
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODA5NiI%3D",#8096
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTk5OSI%3D",#9999
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iOTkwMSI%3D",#9901
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSI%3D",#8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgb3JnPSJDaGluYW5ldCI%3D",#电信随机
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iR3VpZ2FuZyI%3D",  #贵港8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcG9ydD0iODE4MSIgJiYgY2l0eT0iTmFubmluZyI%3D",  #南宁8181
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdW5hbiI%3D",#湖南
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJIdWJlaSIg",#湖北
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgcmVnaW9uPSJodWJlaSIgJiYgcG9ydD0iOTkwMSI%3D",  #湖北9901
+    "https://fofa.info/result?qbase64=ImlwdHYvbGl2ZS96aF9jbi5qcyIgJiYgIHJlZ2lvbj0iSHVuYW4iICYmIHBvcnQ9Ijk5MDEi",  #湖南9901
 ]
 def modify_urls(url):
     modified_urls = []
@@ -144,29 +142,38 @@ for url in urls:
     for url in valid_urls:
         print(url)
     # 遍历网址列表，获取JSON文件并解析
-def zhgx_analysis(info):
-    #智慧GX解析
-    url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
-    try:
-        rsp = requests.get(url,headers=headers,timeout=3)
-        rsp = rsp.content.decode(chardet.detect(rsp.content)['encoding'])
-        for line in rsp.split('\n'):
-            if 'hls' in line:
-                data = re.sub('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}', info,line)
-            elif 'udp' in line or 'rsp' in line or 'rtsp' in line:
-                data = rsp.replace('://','/')
-                data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
-            else:data = line
-            program_judgment(data)
-    except Exception as e:
-        print(f'ERROR:{e} 地址无效 无法访问')
+    for url in valid_urls:
+        try:
+            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
+            ip_start_index = url.find("//") + 2
+            ip_dot_start = url.find(".") + 1
+            ip_index_second = url.find("/", ip_dot_start)
+            base_url = url[:ip_start_index]  # http:// or https://
+            ip_address = url[ip_start_index:ip_index_second]
+            url_x = f"{base_url}{ip_address}"
+
+            json_url = f"{url}"
+            response = requests.get(json_url, timeout=1)                        ####///////////////
+            json_data = response.json()
+
+            try:
+                # 解析JSON文件，获取name和url字段
+                for item in json_data['data']:
+                    if isinstance(item, dict):
+                        name = item.get('name')
+                        urlx = item.get('url')
+                        if ',' in urlx:
+                            urlx = f"aaaaaaaa"
+
+                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
+                        if 'http' in urlx:
+                          if 'udp' not in urlx:
+                            urld = f"{urlx}"
+                        else:
+                            urld = f"{url_x}{urlx}"
 
 
-        
-
-                        
-
-    if name and urld:
+                        if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
