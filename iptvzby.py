@@ -166,8 +166,7 @@ def zhgx_analysis(info):
 
                         
 
-
-                        if name and urld:
+if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
