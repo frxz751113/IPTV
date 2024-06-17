@@ -144,37 +144,8 @@ for url in urls:
     for url in valid_urls:
         print(url)
     # 遍历网址列表，获取JSON文件并解析
-    for url in valid_urls:
-        try:
-            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
-            ip_start_index = url.find("//") + 2
-            ip_dot_start = url.find(".") + 1
-            ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
-            ip_address = url[ip_start_index:ip_index_second]
-            url_x = f"{base_url}{ip_address}"
-
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=1)                        ####///////////////
-            json_data = response.json()
-
-            try:
-                # 解析JSON文件，获取name和url字段
-                for item in json_data['data']:
-                    if isinstance(item, dict):
-                        name = item.get('name')
-                        urlx = item.get('url')
-                        if ',' in urlx:
-                            urlx = f"aaaaaaaa"
-
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
-                        if 'http' in urlx:
-                          if 'udp' not in urlx:
-                            urld = f"{urlx}"
-                        else:
-                            urld = f"{url_x}{urlx}"
-
-####################
+def zhgx_analysis(info):
+    #智慧GX解析
     url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
     try:
         rsp = requests.get(url,headers=headers,timeout=3)
@@ -189,8 +160,6 @@ for url in urls:
             program_judgment(data)
     except Exception as e:
         print(f'ERROR:{e} 地址无效 无法访问')
-
-##############################
 
 
         
