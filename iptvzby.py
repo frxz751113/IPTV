@@ -93,6 +93,27 @@ for url in urls:
     driver.quit()
 
 
+
+def is_http_port(ip, port,timeout=2):
+    #判断是否为http端口
+    try:
+        rsp = requests.get(f'http://{ip}:{port}',headers=headers,timeout=timeout)
+        if rsp.status_code == 200:
+            #状态码等于200则正常
+            if 'ZHGXTV' in rsp.text.upper():
+                print(f'http://{ip}:{port} 智慧光迅酒店管理系统，正常访问\n')
+                valid_data.append(('zhgx',f'{ip}:{port}'))
+            elif '/iptv/live/zh_cn.js' in rsp.text.lower():
+                print(f'http://{ip}:{port} 智能桌面管理系统，正常访问\n')
+                valid_data.append(('znzm',f'{ip}:{port}'))
+            else:
+                print(f'http://{ip}:{port} 未知系统或者其他WEB？？？')
+            return True
+        else:
+            return False
+    except Exception as e:
+        return False
+
 def zhgx_analysis(info):
     #智慧GX解析
     url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
@@ -128,25 +149,7 @@ def check_iplist(info):
         t.join()
 
     
-def is_http_port(ip, port,timeout=2):
-    #判断是否为http端口
-    try:
-        rsp = requests.get(f'http://{ip}:{port}',headers=headers,timeout=timeout)
-        if rsp.status_code == 200:
-            #状态码等于200则正常
-            if 'ZHGXTV' in rsp.text.upper():
-                print(f'http://{ip}:{port} 智慧光迅酒店管理系统，正常访问\n')
-                valid_data.append(('zhgx',f'{ip}:{port}'))
-            elif '/iptv/live/zh_cn.js' in rsp.text.lower():
-                print(f'http://{ip}:{port} 智能桌面管理系统，正常访问\n')
-                valid_data.append(('znzm',f'{ip}:{port}'))
-            else:
-                print(f'http://{ip}:{port} 未知系统或者其他WEB？？？')
-            return True
-        else:
-            return False
-    except Exception as e:
-        return False
+
 
     if name and urld:
           name = name.replace("高清电影", "影迷电影")          
