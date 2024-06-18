@@ -99,7 +99,7 @@ for url in urls:
     x_urls = []
     def is_http_port(ip, port,timeout=2):
     #判断是否为http端口
-    try:
+     try:
         rsp = requests.get(f'http://{ip}:{port}',headers=headers,timeout=timeout)
         if rsp.status_code == 200:
             #状态码等于200则正常
