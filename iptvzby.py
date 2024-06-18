@@ -92,75 +92,61 @@ for url in urls:
     # 关闭WebDriver
     driver.quit()
 
-    # 查找所有符合指定格式的网址
-    pattern = r"http://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d+"  # 设置匹配的格式，如http://8.8.8.8:8888
-    urls_all = re.findall(pattern, page_content)
-    # urls = list(set(urls_all))  # 去重得到唯一的URL列表
-    urls = set(urls_all)  # 去重得到唯一的URL列表
-    x_urls = []
-    for url in urls:  # 对urls进行处理，ip第四位修改为1，并去重
-        url = url.strip()
-        ip_start_index = url.find("//") + 2
-        ip_end_index = url.find(":", ip_start_index)
-        ip_dot_start = url.find(".") + 1
-        ip_dot_second = url.find(".", ip_dot_start) + 1
-        ip_dot_three = url.find(".", ip_dot_second) + 1
-        base_url = url[:ip_start_index]  # http:// or https://
-        ip_address = url[ip_start_index:ip_dot_three]
-        port = url[ip_end_index:]
-        ip_end = "1"
-        modified_ip = f"{ip_address}{ip_end}"
-        x_url = f"{base_url}{modified_ip}{port}"
-        x_urls.append(x_url)
+
+def zhgx_analysis(info):
+    #智慧GX解析
+    url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
+    try:
+        rsp = requests.get(url,headers=headers,timeout=3)
+        rsp = rsp.content.decode(chardet.detect(rsp.content)['encoding'])
+        for line in rsp.split('\n'):
+            if 'hls' in line:
+                data = re.sub('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}', info,line)
+            elif 'udp' in line or 'rsp' in line or 'rtsp' in line:
+                data = rsp.replace('://','/')
+                data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
+            else:data = line
+            program_judgment(data)
+    except Exception as e:
+        print(f'ERROR:{e} 地址无效 无法访问')
     urls = set(x_urls)  # 去重得到唯一的URL列表
 
-    valid_urls = []
-    #   多线程获取可用url
-    with concurrent.futures.ThreadPoolExecutor(max_workers=100) as executor:
-        futures = []
-        for url in urls:
-            url = url.strip()
-            modified_urls = modify_urls(url)
-            for modified_url in modified_urls:
-                futures.append(executor.submit(is_url_accessible, modified_url))
 
-        for future in concurrent.futures.as_completed(futures):
-            result = future.result()
-            if result:
-                valid_urls.append(result)
+def check_iplist(info):
+    #多线程扫描端口是否能通
+    ip,port = info.strip().split(':')
+    parts = ip.split('.')
+    ipprefix = '.'.join(parts[:3])
+    T_list = []
+    print(f'扫描{ipprefix}网段 端口{port}')
+    for i in range(2,254):
+        checkip = f'{ipprefix}.{i}'
+        task = Thread(target=is_port_open,args=(checkip,port))
+        task.start()
+        T_list.append(task)
+    for t in T_list:
+        t.join()
 
-    for url in valid_urls:
-        print(url)
-    # 遍历网址列表，获取JSON文件并解析
-    for url in valid_urls:
-        try:
-            # 发送GET请求获取JSON文件，设置超时时间为0.5秒
-            ip_start_index = url.find("//") + 2
-            ip_dot_start = url.find(".") + 1
-            ip_index_second = url.find("/", ip_dot_start)
-            base_url = url[:ip_start_index]  # http:// or https://
-            ip_address = url[ip_start_index:ip_index_second]
-            url_x = f"{base_url}{ip_address}"
-
-            json_url = f"{url}"
-            response = requests.get(json_url, timeout=1)                        ####///////////////
-            json_data = response.json()
-
-            try:
-                # 解析JSON文件，获取name和url字段
-                for item in json_data['data']:
-                    if isinstance(item, dict):
-                        name = item.get('name')
-                        urlx = item.get('url')
-                        if ',' in urlx:
-                            urlx = f"aaaaaaaa"
-
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
-                        if 'http' in urlx:
-                          if 'udp' not in urlx:
-                            urld = f"{urlx}"
-                        else:
-                            urld = f"{url_x}{urlx}"
+    
+def is_http_port(ip, port,timeout=2):
+    #判断是否为http端口
+    try:
+        rsp = requests.get(f'http://{ip}:{port}',headers=headers,timeout=timeout)
+        if rsp.status_code == 200:
+            #状态码等于200则正常
+            if 'ZHGXTV' in rsp.text.upper():
+                print(f'http://{ip}:{port} 智慧光迅酒店管理系统，正常访问\n')
+                valid_data.append(('zhgx',f'{ip}:{port}'))
+            elif '/iptv/live/zh_cn.js' in rsp.text.lower():
+                print(f'http://{ip}:{port} 智能桌面管理系统，正常访问\n')
+                valid_data.append(('znzm',f'{ip}:{port}'))
+            else:
+                print(f'http://{ip}:{port} 未知系统或者其他WEB？？？')
+            return True
+        else:
+            return False
+    except Exception as e:
+        return False
 
 
                         if name and urld:
