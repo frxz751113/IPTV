@@ -24,7 +24,7 @@ with open("iptv_list.txt", 'r', encoding='utf-8') as file:
         if line:
             channel_name, channel_url = line.split(',')
                 
-            renhe_channels = [',', '相声小品']
+            renhe_channels = ['CCTV', '相声小品']
             # 检查频道名称是否不包含要排除的频道名称
             if any(excluded in channel_name for excluded in renhe_channels):
                 channels.append((channel_name, channel_url))
@@ -116,7 +116,7 @@ with open("qita.txt", 'w', encoding='utf-8') as file:
         # 解包结果元组
         channel_name, channel_url, speed = result
         # 创建一个列表来存储要排除的频道名称
-        excluded_channels = [',', '相声小品']
+        excluded_channels = ['CCTV', '相声小品']
 
         # 检查频道名称是否不包含要排除的频道名称
         if not any(excluded in channel_name for excluded in excluded_channels):
