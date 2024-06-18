@@ -148,8 +148,7 @@ def is_http_port(ip, port,timeout=2):
     except Exception as e:
         return False
 
-
-                        if name and urld:
+if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
                             name = name.replace("中央", "CCTV")
                             name = name.replace("高清", "")
