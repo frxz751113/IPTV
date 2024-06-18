@@ -147,7 +147,7 @@ for url in urls:
             json_data = response.json()
 
 
-   def zhgx_analysis(info):
+    def zhgx_analysis(info):
     #智慧GX解析
     url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
     try:
