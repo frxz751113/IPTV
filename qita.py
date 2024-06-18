@@ -24,7 +24,7 @@ with open("iptv_list.txt", 'r', encoding='utf-8') as file:
         if line:
             channel_name, channel_url = line.split(',')
                 
-            renhe_channels = ['CCTV', '相声小品']
+            renhe_channels = ['CCTV', '卫视', '影', '剧', '惊', '重温', '功夫', '妈', '精选', '8K', '八大', '天映', '凤凰', '三立', '东森']
             # 检查频道名称是否不包含要排除的频道名称
             if any(excluded in channel_name for excluded in renhe_channels):
                 channels.append((channel_name, channel_url))
@@ -42,7 +42,7 @@ def worker():
             ts_url = channel_url_t + ts_lists[0]  # 拼接单个视频片段下载链接
 
             # 多获取的视频数据进行5秒钟限制
-            with eventlet.Timeout(20, False):
+            with eventlet.Timeout(100, False):####################################################################################
                 start_time = time.time()
                 content = requests.get(ts_url,timeout=1).content
                 end_time = time.time()
@@ -75,7 +75,7 @@ def worker():
 
 
 # 创建多个工作线程
-num_threads = 10
+num_threads = 20
 for _ in range(num_threads):
     t = threading.Thread(target=worker, daemon=True) 
     #t = threading.Thread(target=worker, args=(event,len(channels)))  # 将工作线程设置为守护线程
@@ -116,7 +116,7 @@ with open("qita.txt", 'w', encoding='utf-8') as file:
         # 解包结果元组
         channel_name, channel_url, speed = result
         # 创建一个列表来存储要排除的频道名称
-        excluded_channels = ['CCTV', '相声小品']
+        excluded_channels = ['CCTV', '卫视', '影', '剧', '惊', '重温', '功夫', '妈', '精选', '8K', '八大', '天映', '凤凰', '三立', '东森']
 
         # 检查频道名称是否不包含要排除的频道名称
         if not any(excluded in channel_name for excluded in excluded_channels):
