@@ -149,14 +149,14 @@ for url in urls:
             try:
                 # 解析JSON文件，获取name和url字段
                 for line in rsp.split('\n'):
-            if 'hls' in line:
-                data = re.sub('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}', info,line)
-            elif 'udp' in line or 'rsp' in line or 'rtsp' in line:
-                data = rsp.replace('://','/')
-                data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
-            else:data = line
-            program_judgment(data)
-    except Exception as e:
+                 if 'hls' in line:
+                  data = re.sub('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}', info,line)
+                 elif 'udp' in line or 'rsp' in line or 'rtsp' in line:
+                  data = rsp.replace('://','/')
+                  data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
+                 else:data = line
+                 program_judgment(data)
+            except Exception as e:
 
 
                         if name and urld:
