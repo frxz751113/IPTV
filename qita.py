@@ -27,7 +27,7 @@ with open("iptv_list.txt", 'r', encoding='utf-8') as file:
             renhe_channels = ['教育', '相声小品']
             # 检查频道名称是否不包含要排除的频道名称
             if any(excluded in channel_name for excluded in renhe_channels):
-                #channels.append((channel_name, channel_url))
+                channels.append((channel_name, channel_url))
 
 # 定义工作线程函数
 def worker():
