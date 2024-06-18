@@ -160,8 +160,6 @@ for url in urls:
                          data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
                      else:data = line
                      program_judgment(data)
-             except Exception as e:
-                 print(f'ERROR:{e} 地址无效 无法访问')
 
 
                         if name and urld:
