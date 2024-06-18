@@ -146,22 +146,23 @@ for url in urls:
             response = requests.get(json_url, timeout=1)                        ####///////////////
             json_data = response.json()
 
-            try:
-                # 解析JSON文件，获取name和url字段
-                for item in json_data['data']:
-                    if isinstance(item, dict):
-                        name = item.get('name')
-                        urlx = item.get('url')
-                        if ',' in urlx:
-                            urlx = f"aaaaaaaa"
 
-                        #if 'http' in urlx or 'udp' in urlx or 'rtp' in urlx:
-                        if 'http' in urlx:
-                          if 'udp' not in urlx:
-                            urld = f"{urlx}"
-                        else:
-                            urld = f"{url_x}{urlx}"
-
+   def zhgx_analysis(info):
+    #智慧GX解析
+    url = f'http://{info}/ZHGXTV/Public/json/live_interface.txt'
+    try:
+        rsp = requests.get(url,headers=headers,timeout=3)
+        rsp = rsp.content.decode(chardet.detect(rsp.content)['encoding'])
+        for line in rsp.split('\n'):
+            if 'hls' in line:
+                data = re.sub('\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}|\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}:\d{1,5}', info,line)
+            elif 'udp' in line or 'rsp' in line or 'rtsp' in line:
+                data = rsp.replace('://','/')
+                data = data.split(',')[0] + ',' + f"http://{info}/%s"%data.split(',')[1]
+            else:data = line
+            program_judgment(data)
+    except Exception as e:
+        print(f'ERROR:{e} 地址无效 无法访问')
 
                         if name and urld:
                             name = name.replace("高清电影", "影迷电影")                            
