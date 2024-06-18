@@ -1,5 +1,0 @@
-其他频道,#genre#
-
-06月18日12时,#genre#
-
-CCTV1,http://58.210.60.226:9901/tsfile/live/0001_1.m3u8?key=txiptv&playlive=1&authid=0
